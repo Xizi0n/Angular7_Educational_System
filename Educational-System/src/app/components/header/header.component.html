@@ -1,5 +1,11 @@
 <div class="header">
-  <span id="brand">Tudástár</span>
-  <div class="button">Bejelentkezés</div>
+  <span id="brand" routerLink="kurzusok">Tudástár</span>
+  <span id="loggedinUser" *ngIf="auth.isAuthenticated" class="button">
+    <span id="profilePicture">
+      <img src="../../../assets/images/user_mock-profile.svg" title="{{auth.loggedinUser.name}}">
+    </span>
+    Hello, {{auth.loggedinUser.name}}</span>
+  <div class="button" *ngIf="!auth.isAuthenticated" routerLink="registration" >Regisztráció</div>
+  <div class="button" *ngIf="!auth.isAuthenticated" routerLink="login" >Bejelentkezés</div>
   <div class="burger"><i class="fas fa-bars"></i></div>
 </div>

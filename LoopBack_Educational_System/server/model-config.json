@@ -14,28 +14,32 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongo_test"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongo_test",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongo_test",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongo_test",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongo_test",
     "public": false
   },
   "Student": {
+    "dataSource": "mongo_test",
+    "public": true
+  },
+  "Courses": {
     "dataSource": "mongo_test",
     "public": true
   }

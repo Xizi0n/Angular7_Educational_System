@@ -6,7 +6,7 @@ export interface UserInterface {
   "username"?: string;
   "email": string;
   "emailVerified"?: boolean;
-  "id"?: number;
+  "id"?: any;
   "password"?: string;
   accessTokens?: any[];
 }
@@ -16,7 +16,7 @@ export class User implements UserInterface {
   "username": string;
   "email": string;
   "emailVerified": boolean;
-  "id": number;
+  "id": any;
   "password": string;
   accessTokens: any[];
   constructor(data?: UserInterface) {
@@ -70,7 +70,7 @@ export class User implements UserInterface {
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "password": {
           name: 'password',

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">Jelentkezz be</div>
+    <div class="card-content">
+      <div class="label">E-mail:</div>
+      <input class="input" type="email" [(ngModel)]="user.email" placeholder="valaki@gmail.com">
+      <div class="label">Jelszó:</div>
+      <input class="input" type="password" [(ngModel)]="user.password" placeholder="jelszó...">
+    </div>
+    <div class="card-button" (click)="login()">Bejelentkezés</div>
+    <div class="notification">Nem vagy még tag? <span routerLink="/registration" id="link">Regisztrálj!</span></div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SDKBrowserModule } from './shared/sdk/index';
@@ -13,6 +14,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseComponent } from './components/course/course.component';
 import { AuthService } from './services/auth.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,14 @@ import { AuthService } from './services/auth.service';
     HeaderComponent,
     CoursesComponent,
     CourseComponent,
+    LoginComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     SDKBrowserModule.forRoot()
   ],
   providers: [
