@@ -10,7 +10,6 @@ import { CourseService } from '../../services/course.service';
 export class CoursesComponent implements OnInit {
   courses;
 
-  /* #region MOCK*/
   private mocks = [
     {
       name: 'A programozás alapjai',

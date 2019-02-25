@@ -7,14 +7,19 @@
       <div class="label">Szak:</div>
       <input class="input" type="text" [(ngModel)]="user.qualification" placeholder="Mérnökinformatikus">
       <div class="label">E-mail:</div>
-      <input class="input" type="email" [(ngModel)]="user.email" placeholder="valaki@gmail.com">
+      <input class="input" type="email" (input)="clearEmail()" [(ngModel)]="user.email" placeholder="valaki@gmail.com">
+      <div *ngIf="emailAvailable === false" class="warn"><i class="fas fa-exclamation-triangle"></i> &nbsp; Az email-cím foglalt</div>
       <div class="label">Jelszó:</div>
-      <input class="input" type="password" (input)="checkPass($event)" [(ngModel)]="user.password" placeholder="jelszó...">
+      <input class="input" type="password" (input)="comparePass($event)" (input)="checkPass()" [(ngModel)]="user.password" placeholder="jelszó...">
+      <div *ngIf="!isValidPassword" >
+        <div *ngFor="let problem of passwordProblems" class="accent"><i class="fas fa-exclamation-triangle"></i> &nbsp; {{problem}}</div>
+      </div>
+      <div *ngIf="isValidPassword" class="ok"><i class="fas fa-check-circle"></i> &nbsp; Minden kritériumnak megfelel </div>
       <div class="label">Jelszó mégegyszer:</div>
-      <input class="input" type="password" (input)="checkPass($event)" [(ngModel)]="user.passwordAgain" placeholder="jelszó ismét ...">
+      <input class="input" type="password" (input)="comparePass($event)" [(ngModel)]="user.passwordAgain" placeholder="jelszó ismét ...">
     </div>
-    <div *ngIf="!passwordChecked" class="warn"><i class="fas fa-exclamation-triangle"></i>A két jelszó nem egegyezik meg</div>
-    <div *ngIf="passwordChecked" class="ok"><i class="fas fa-check-circle"></i> A két jelszó megegyezik </div>
+    <div *ngIf="!passwordMatched" class="warn"><i class="fas fa-exclamation-triangle"></i> &nbsp; A két jelszó nem egyezik meg</div>
+    <div *ngIf="passwordMatched" class="ok"><i class="fas fa-check-circle"></i> &nbsp; A két jelszó megegyezik </div>
     <div class="card-button" id="button" (click)="registrate()">Regisztrálok</div>
 
     <div class="notification">Már regisztráltál? <span routerLink="/login" id="link">Jelentkezz be!</span></div>

@@ -19,14 +19,22 @@ export class AuthService {
   }
 
   signUp(user) {
-    this.userApi.create(user).subscribe(
-      data => {
-        console.log(JSON.stringify(data));
-      }
-    );
+    return this.userApi.create(user);
   }
 
   login(user) {
      return this.userApi.login(user);
+  }
+
+  logout() {
+    return this.userApi.logout();
+  }
+
+  isAutheticated() {
+    return this.userApi.isAuthenticated();
+  }
+
+  isEmailAlreadyExist(emailtoCheck) {
+    return this.userApi.  findOne({ fields: {email: emailtoCheck}});
   }
 }

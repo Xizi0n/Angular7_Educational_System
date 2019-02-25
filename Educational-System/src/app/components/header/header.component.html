@@ -1,11 +1,16 @@
 <div class="header">
   <span id="brand" routerLink="kurzusok">Tudástár</span>
-  <span id="loggedinUser" *ngIf="auth.isAuthenticated" class="button">
+  <span id="loggedinUser" *ngIf="auth.isAuthenticated" class="button dropdown">
     <span id="profilePicture">
       <img src="../../../assets/images/user_mock-profile.svg" title="{{auth.loggedinUser.name}}">
     </span>
-    Hello, {{auth.loggedinUser.name}}</span>
-  <div class="button" *ngIf="!auth.isAuthenticated" routerLink="registration" >Regisztráció</div>
-  <div class="button" *ngIf="!auth.isAuthenticated" routerLink="login" >Bejelentkezés</div>
+    Hello, {{auth.loggedinUser.name}}
+    <div class="dropdown-content">
+      <a> Profil</a>
+      <a (click)="logout()" style="color:red;"> <i class="fas fa-sign-out-alt"></i> Kijelentkezés</a>
+    </div>
+  </span>
+  <div class="button" *ngIf="!auth.isAuthenticated" routerLink="registration">Regisztráció</div>
+  <div class="button" *ngIf="!auth.isAuthenticated" routerLink="login">Bejelentkezés</div>
   <div class="burger"><i class="fas fa-bars"></i></div>
 </div>
