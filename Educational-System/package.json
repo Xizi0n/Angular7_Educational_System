@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "chance": "^1.0.18",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "socket.io-client": "^2.2.0",
@@ -36,6 +37,7 @@
     "@types/node": "~8.9.4",
     "@types/socket.io-client": "^1.4.32",
     "codelyzer": "~4.5.0",
+    "cypress": "^3.1.5",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",

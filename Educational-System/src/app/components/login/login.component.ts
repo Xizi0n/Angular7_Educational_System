@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  private user: any = {};
+  public user: any = {};
 
   constructor(private auth: AuthService, private router: Router) { }
 

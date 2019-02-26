@@ -4,12 +4,14 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'kurzusok', component: CoursesComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({

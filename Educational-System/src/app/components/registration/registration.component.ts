@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   passwordProblems = [];
   emailAvailable;
 
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(private router: Router, public auth: AuthService) { }
 
   ngOnInit() {
   }

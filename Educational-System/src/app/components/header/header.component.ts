@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  dropdownToogle = false;
+
+  constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,6 +27,9 @@ export class HeaderComponent implements OnInit {
       }, error => {
         console.log('ERROR: ' + JSON.stringify(error));
       });
+  }
+  toggleDropdown() {
+    this.dropdownToogle = !this.dropdownToogle;
   }
 
 }

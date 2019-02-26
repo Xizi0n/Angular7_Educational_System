@@ -1,0 +1,56 @@
+.wrapper {
+    background-image: url('../../../assets/images/profile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%;
+}
+.container {
+    width: 70%;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: rgba(250, 250, 250, 0.8);
+    
+}
+
+#nameplate {
+    background: rgba(33, 33, 33, 0.6);
+    width: 100%;
+    max-height: 40vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+#profilePicture {
+    border-radius: 100%;
+    width: 20%;
+    height: auto;
+    flex-basis: 25%;
+    margin-left: 12%;
+    margin-top: 5%;
+    
+}
+
+#information {
+    color: #fafafa;
+    margin-top: 60px;
+    line-height: 250%;
+    font-family: 'Roboto';
+    font-size: 18px;
+
+}
+
+.bar {
+    background-color: #212121;
+    color: #fafafa;
+    width: 100%;
+    height: 48px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Roboto';
+    font-size: 27px;
+    line-height: 48px;
+    text-align: center;
+}
