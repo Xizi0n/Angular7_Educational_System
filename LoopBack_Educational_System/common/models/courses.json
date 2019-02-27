@@ -14,7 +14,7 @@
       "type": "string",
       "required": true
     },
-    "lessons": {
+    "chapters": {
       "type": [
         "object"
       ],

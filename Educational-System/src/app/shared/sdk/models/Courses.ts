@@ -4,14 +4,14 @@ declare var Object: any;
 export interface CoursesInterface {
   "name": string;
   "icon": string;
-  "lessons": Array<any>;
+  "chapters": Array<any>;
   "id"?: any;
 }
 
 export class Courses implements CoursesInterface {
   "name": string;
   "icon": string;
-  "lessons": Array<any>;
+  "chapters": Array<any>;
   "id": any;
   constructor(data?: CoursesInterface) {
     Object.assign(this, data);
@@ -54,8 +54,8 @@ export class Courses implements CoursesInterface {
           name: 'icon',
           type: 'string'
         },
-        "lessons": {
-          name: 'lessons',
+        "chapters": {
+          name: 'chapters',
           type: 'Array&lt;any&gt;'
         },
         "id": {
