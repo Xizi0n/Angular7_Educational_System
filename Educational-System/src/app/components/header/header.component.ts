@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   dropdownToogle = false;
+  enableNotifications = true;
 
   constructor(public auth: AuthService, private router: Router) { }
 
@@ -30,6 +31,9 @@ export class HeaderComponent implements OnInit {
   }
   toggleDropdown() {
     this.dropdownToogle = !this.dropdownToogle;
+  }
+  toggleNotifications() {
+    this.enableNotifications = !this.enableNotifications;
   }
 
 }

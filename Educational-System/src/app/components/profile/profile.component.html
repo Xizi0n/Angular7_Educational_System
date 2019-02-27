@@ -3,11 +3,15 @@
     <div id="nameplate" >
       <img id="profilePicture"src="../../../assets/images/user_mock-profile.svg">
       <div id="information">
-        <div class="display">Nagy Ádám Richárd</div>
-        <div class="display">Programtervező informatikus</div>
-        <div class="display">askdjalksncajksbkajsdh</div>
+        <div class="display">Név: {{auth.loggedinUser.name}} </div>
+        <div class="display">Szak: {{auth.loggedinUser.qualification}} </div>
+        <div class="display">Megoldások: 44</div>
       </div>
     </div>
     <div class="bar">Teljesítések</div>
+    <div id="chartCards">
+      <app-chart-card></app-chart-card>
+      <app-chart-card></app-chart-card>
+    </div>
   </div>
 </div>

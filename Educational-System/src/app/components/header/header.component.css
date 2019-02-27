@@ -14,36 +14,34 @@
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 40px;
+    font-size: 34px;
+    line-height: 48px;
+    cursor: pointer;
 }
 
-.button {
+.headerItem {
     font-family: Roboto;
     font-size: 18px;
     float: right;
     height: inherit;
     line-height: 48px;
     margin-right: 1%;
+    
+}
+
+.icon {
+    font-size: 1.3em;
+}
+
+.button {
+    cursor: pointer;
 }
 
 .burger {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
-    .button {
-        display: none
-    }
-    .burger {
-        display: block;
-        font-family: Roboto;
-        font-size: 31px;
-        float: right;
-        height: inherit;
-        line-height: 48px;
-        margin-right: 5%;
-    }
-  }
+
 
   #profilePicture {
       border-radius: 100%;
@@ -53,11 +51,15 @@
       margin-top: 4px;
       margin-bottom: 4px;
       margin-right: 5px;
+      cursor: pointer;
+      flex-grow: 1;
+      
   }
 
   .dropdown {
     float: right;
     overflow: hidden;
+    cursor: pointer;
   }
   
   .dropdown .dropbtn {
@@ -102,4 +104,33 @@
   
   .visible {
     display: block;
+  }
+
+  #loggedinUser {
+      width: 230px;
+      display: flex;
+      flex-direction: row;
+
+  }
+
+  #warn {
+      color: #CD2C32;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .headerItem {
+        display: none
+    }
+    .burger {
+        display: block;
+        font-family: Roboto;
+        font-size: 31px;
+        float: right;
+        height: inherit;
+        line-height: 48px;
+        margin-right: 5%;
+    }
+    #loggedinUser {
+        display: none;
+    }
   }

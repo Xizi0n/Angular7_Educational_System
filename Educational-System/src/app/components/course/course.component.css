@@ -1,7 +1,7 @@
 
 
 .card {
-    flex-basis: 33%;
+    flex: 1 1 21%;
     margin-top: 60px;
     width: 371px;
     height: 420px;
@@ -36,6 +36,8 @@
     margin-top: 50px;
     font-size: 30px;
     border-radius: 20px;
+    transition: 0.3s;
+    cursor: pointer;
 
 }
 

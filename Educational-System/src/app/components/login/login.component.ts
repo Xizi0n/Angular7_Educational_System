@@ -28,10 +28,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('email', response.user.email);
           console.log('response: ' +  JSON.stringify(response));
           this.auth.isAuthenticated = true;
-          this.auth.loggedinUser =  {
-            name: response.user.name,
-            email: response.user.email
-          };
+          this.auth.loggedinUser =  response.user;
           this.router.navigateByUrl('/kurzusok');
           console.log('loggedinUSER' + JSON.stringify(this.auth.loggedinUser));
         },
