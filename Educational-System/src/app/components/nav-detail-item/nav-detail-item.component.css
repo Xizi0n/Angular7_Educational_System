@@ -1,0 +1,26 @@
+
+
+.navDetailItem {
+    display: block;
+    background-color: #212121;
+    color: #fafafa;
+    font-size: 0.85em;
+    height: 40px;;
+    line-height: 40px;
+    padding-right: 1em;
+    padding-left: 3em;
+}
+
+.navDetailItem:hover {
+    background-color: #fafafa ;
+    color: #212121;
+    transition: 0.3s;
+    border-bottom: 3px solid rgb(216, 0, 47, 0.8);
+}
+
+.open {
+    background-color: #fafafa;
+    color: #212121;
+    border-bottom: 3px solid rgb(216, 0, 47, 0.8);
+}
+

@@ -10,6 +10,9 @@ import { environment } from '../../environments/environment';
 export class CourseService {
 
 
+  courses = [];
+  lessonToShow;
+
   mock = {
     name: 'A programozás alapjai',
     icon: 'fas fa-code',
@@ -35,6 +38,10 @@ export class CourseService {
     LoopBackConfig.setApiVersion(environment.loopBackApi);
   }
 
+  setLessonToShow(lesson: any) {
+    this.lessonToShow = lesson;
+  }
+
 
 
   createCourse(course) {
@@ -50,6 +57,9 @@ export class CourseService {
 
   getCourses() {
     const course$ = this.coursesApi.find();
+    course$.subscribe( courses => {
+      this.courses = courses;
+  });
     return course$;
   }
 

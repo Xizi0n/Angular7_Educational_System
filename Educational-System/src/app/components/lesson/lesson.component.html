@@ -1,0 +1,14 @@
+
+<div class="wrapper">
+  <div class="sidenav">
+    <app-sidenav class="sidenav"></app-sidenav>
+  </div>
+  <div class="content">
+    <div *ngIf="courseService.lessonToShow !== null && courseService.lessonToShow !== undefined ">
+        {{courseService.lessonToShow.lesson}}
+    </div>
+    <div *ngIf="!(courseService.lessonToShow !== null && courseService.lessonToShow !== undefined)">
+        <div id="highlight">Kérem válasszon a tárgyak közül!</div>
+    </div>
+  </div>
+</div>

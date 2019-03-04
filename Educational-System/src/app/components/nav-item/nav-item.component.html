@@ -1,0 +1,10 @@
+
+<div (click)="toggleOpen()" [ngClass]="{ open: isOpen}" class="navItem flex">
+        <i ngClass="{{course.icon}}"></i>
+    <span id="name">{{course.name}}</span>
+    <span> <i *ngIf="!isOpen"  class="fas fa-chevron-down"></i> </span> 
+    <span> <i *ngIf="isOpen"  class="fas fa-chevron-up"></i></span>
+</div>
+<div *ngIf="isOpen">
+        <app-nav-detail-item [course]="course"></app-nav-detail-item>
+</div>

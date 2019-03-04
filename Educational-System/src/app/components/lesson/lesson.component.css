@@ -1,0 +1,37 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidenav {
+    min-width:  200px;
+    width: 15%;
+    background-color: #2d2d2d;
+    border-right: 1px solid rgba( 250, 250, 250, 0.2);
+}
+
+.content {
+    width: 85%;
+    margin-top: 48px;
+    background-color: #2d2d2d;
+    color: #fafafa;
+    padding: 2em;
+    min-width: 300px;
+}
+
+.sidenav {
+    margin-top: 48px;
+}
+
+#highlight {
+    font-size: calc(0.2rem + 0.07 * 100vw);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20%;
+}

@@ -1,0 +1,3 @@
+<div *ngFor="let lesson of course.lessons; let i = index">
+  <div (click)="showLesson(i)"  class="navDetailItem"> {{lesson.title}}</div>
+</div>
