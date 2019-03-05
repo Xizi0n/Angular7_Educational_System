@@ -17,14 +17,65 @@
     border-right: 1px solid rgba( 250, 250, 250, 0.2);
 }
 
-#colorChange{
+.buttonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.buttonGroup div {
+    width: 45%;
+    min-width: 300px;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 3px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    cursor: pointer;
+}
+
+#actions {
+    display: block;
+    background-color: inherit;
+    
+}
+
+#actions > div {
+    margin-left: auto;
+    margin-right: 0;
+} 
+
+#actions .actionButton {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 0.33em;
+    border-radius: 3px;
+    border: 0.5px solid black;
+    margin-left: auto;
+    margin-right: 10px;
+    max-width: 43px;
+}
+
+#actions div * + * {
+    font-size: 1.5em;
+    padding: 0.33em;
+    border-radius: 3px;
+    border: 0.5px solid black;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#edit {
     position: absolute;
     top: 55px;
-    right: 1vw;
+    right: 4vw;
     display: block;
     font-size: 1.5em;
     padding: 0.33em;
     border-radius: 3px;
+    
 }
 
 .content {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 
 @Component({
@@ -9,6 +9,9 @@ import { CourseService } from 'src/app/services/course.service';
 export class LessonComponent implements OnInit {
 
   isDark = true;
+  isEditing = false;
+  currentLesson = '';
+  @ViewChild('contentToShow') contentToShow: ElementRef;
 
   constructor(public courseService: CourseService) { }
 
@@ -17,7 +20,9 @@ export class LessonComponent implements OnInit {
     this.courseService.lessontoShow$.subscribe( changed => {
       if ( changed !== null && changed !== undefined) {
         console.log(changed);
-        document.querySelector('.content').innerHTML = changed;
+        this.contentToShow.nativeElement.innerHTML = changed;
+        this.currentLesson = changed;
+        console.log('Currentleson: ' + this.currentLesson);
       }
     });
   }
@@ -31,6 +36,22 @@ export class LessonComponent implements OnInit {
       document.getElementById('content').style.color = '#212121';
       document.getElementById('content').style.backgroundColor = '#fafafa';
     }
+  }
+
+  startEdit() {
+    this.isEditing = true;
+    console.log('isEditing: ' + this.isEditing);
+  }
+
+  cancelEditing() {
+    this.isEditing = false;
+    setTimeout(() => {
+      this.showContent();
+    }, 100);
+  }
+
+  showContent() {
+    this.contentToShow.nativeElement.innerHTML = this.currentLesson;
   }
 
 }

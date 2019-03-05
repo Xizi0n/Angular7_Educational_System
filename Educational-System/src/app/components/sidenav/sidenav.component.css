@@ -6,3 +6,8 @@
     font-size: 1em;
     height: 3em;
 }
+
+#add {
+    line-height: 48px;
+    text-align: center;
+}

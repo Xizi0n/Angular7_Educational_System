@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { NgxEditorModule } from 'ngx-editor';
 import { AppRoutingModule } from './app-routing.module';
 import { SDKBrowserModule } from './shared/sdk/index';
 
@@ -38,14 +38,15 @@ import { NavDetailItemComponent } from './components/nav-detail-item/nav-detail-
     LessonComponent,
     SidenavComponent,
     NavItemComponent,
-    NavDetailItemComponent,
+    NavDetailItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SDKBrowserModule.forRoot()
+    SDKBrowserModule.forRoot(),
+    NgxEditorModule
   ],
   providers: [
     AuthService

@@ -9,6 +9,7 @@
     line-height: 40px;
     padding-right: 1em;
     padding-left: 3em;
+    z-index: 1000;
 }
 
 .navDetailItem:hover {
