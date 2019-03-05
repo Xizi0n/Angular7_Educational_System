@@ -21,4 +21,11 @@ export class NavItemComponent implements OnInit {
     console.log('oppen toggled');
   }
 
+  close() {
+    if ( window.innerWidth < 1100) {
+      this.isOpen = false;
+    }
+
+  }
+
 }

@@ -19,6 +19,10 @@
     cursor: pointer;
 }
 
+#brand:hover {
+    border-bottom: 3px solid rgb(216, 0, 47, 0.8);
+}
+
 .headerItem {
     font-family: Roboto;
     font-size: 18px;
@@ -58,7 +62,6 @@
 
   .dropdown {
     float: right;
-    overflow: hidden;
     cursor: pointer;
   }
   

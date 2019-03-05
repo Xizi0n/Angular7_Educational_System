@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoopBackConfig } from '../shared/sdk';
 import { CoursesApi } from '../shared/sdk';
 import { environment } from '../../environments/environment';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,9 @@ export class CourseService {
   courses = [];
   lessonToShow;
 
+  lessontoShow$ = new BehaviorSubject(this.lessonToShow);
+
+  // LessonToShow$ = this.lessonToShow.asObservable();
   mock = {
     name: 'A programozás alapjai',
     icon: 'fas fa-code',
@@ -40,6 +44,7 @@ export class CourseService {
 
   setLessonToShow(lesson: any) {
     this.lessonToShow = lesson;
+    this.lessontoShow$.next(this.lessonToShow);
   }
 
 

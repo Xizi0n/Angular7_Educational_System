@@ -24,3 +24,58 @@
     border-bottom: 3px solid rgb(216, 0, 47, 0.8);
 }
 
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+    
+    .dropDown {
+        position: absolute;
+        left: 75px;
+        color: #212121;
+        width: 300px;
+        background-color: #fafafa;
+    }
+
+    .navDetailItem {
+        background-color: #fafafa;
+        color: #212121;
+    }
+
+    .navDetailItem:hover {
+        background-color: #212121;
+        color: #fafafa;
+    }
+
+     * + * {
+        position: relative;
+        top: 43px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .dropDown {
+        position: absolute;
+        left: 50px;
+        color: #212121;
+        width: 300px;
+        background-color: #fafafa;
+    }
+
+    .navDetailItem:hover {
+        background-color: #212121;
+        color: #fafafa;
+    }
+
+     * + * {
+        position: relative;
+        top: 43px;
+    }
+
+}
+
+
+

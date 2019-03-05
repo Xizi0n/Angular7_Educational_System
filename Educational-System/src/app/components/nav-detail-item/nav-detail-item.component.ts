@@ -18,8 +18,19 @@ export class NavDetailItemComponent implements OnInit {
 
   showLesson(i) {
     console.log(i);
-    this.courseService.setLessonToShow(this.course.lessons[i]);
+    this.courseService.setLessonToShow(this.course.lessons[i].lesson);
     console.log(this.courseService.lessonToShow);
+  }
+
+  collapse() {
+    if ( window.innerWidth < 1100) {
+      document.querySelectorAll('.navDetailItem').forEach ( element => {
+        element.classList.add('hidden');
+      });
+      document.querySelectorAll('.navItem').forEach ( element => {
+        element.classList.remove('open');
+      });
+    }
   }
 
 }

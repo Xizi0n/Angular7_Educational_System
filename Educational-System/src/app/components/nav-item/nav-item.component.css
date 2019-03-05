@@ -40,9 +40,31 @@ div i {
     right: 0;
 }
 
+@media only screen and (max-width: 1100px) {
+    div span {
+        display: none;
+    }
+
+    div i {
+        font-size: 30px;
+    }
+
+    .navItem {
+        text-align: center;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     div span {
         display: none;
+    }
+
+    div i {
+        font-size: 1em;
+    }
+
+    .navItem {
+        text-align: center;
     }
 }
 

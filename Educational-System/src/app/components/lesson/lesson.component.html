@@ -3,9 +3,11 @@
   <div class="sidenav">
     <app-sidenav class="sidenav"></app-sidenav>
   </div>
-  <div class="content">
+  <div id="colorChange" *ngIf="isDark" (click)="changeColor()" style="background-color: #fafafa; color: #212121" ><i class="fas fa-sun"></i></div>
+    <div id="colorChange" *ngIf="!isDark" (click)="changeColor()" style="background-color: #212121; color: #fafafa" ><i class="fas fa-moon"></i></div>
+  <div class="content" id="content">
     <div *ngIf="courseService.lessonToShow !== null && courseService.lessonToShow !== undefined ">
-        {{courseService.lessonToShow.lesson}}
+        
     </div>
     <div *ngIf="!(courseService.lessonToShow !== null && courseService.lessonToShow !== undefined)">
         <div id="highlight">Kérem válasszon a tárgyak közül!</div>
