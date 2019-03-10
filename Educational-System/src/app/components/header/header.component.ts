@@ -36,4 +36,8 @@ export class HeaderComponent implements OnInit {
     this.enableNotifications = !this.enableNotifications;
   }
 
+  toggleAdmin() {
+    this.auth.canEdit = !this.auth.canEdit;
+  }
+
 }

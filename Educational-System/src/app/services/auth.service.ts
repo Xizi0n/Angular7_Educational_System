@@ -12,6 +12,7 @@ export class AuthService {
 
   isAuthenticated = false;
   loggedinUser = {};
+  canEdit = false;
 
   constructor(private http: HttpClient, private userApi: UserApi) {
     LoopBackConfig.setBaseURL(environment.loopBackBaseUrl);

@@ -1,4 +1,8 @@
 <div *ngFor="let lesson of course.lessons; let i = index; let last = last" class="dropDown" (click)="collapse()" >
   <div (click)="showLesson(i)"  class="navDetailItem"> {{lesson.title}}</div>
-  <div *ngIf="last" class="navDetailItem" style="background-color:#7cb342; text-align: center; padding: 0"><i class="fas fa-plus-circle"></i></div>
+  <div *ngIf="last && auth.canEdit" class="navDetailItem" style="background-color:#7cb342; text-align: center; padding: 0" (click)="addInput()">
+    <i *ngIf="!inputEnabled" class="fas fa-plus-circle"></i>
+    <input *ngIf="inputEnabled" type="text" [(ngModel)]="addTitle" >
+    <button *ngIf="inputEnabled" (click)="addLesson()" >Add</button>
+  </div>
 </div>

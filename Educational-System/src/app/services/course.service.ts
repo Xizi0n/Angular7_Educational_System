@@ -73,6 +73,18 @@ export class CourseService {
     return course$;
   }
 
+  updateCourse( id: any, lesson: any) {
+    this.coursesApi.updateAll( id, {
+      $push: {
+        lessons: lesson
+      }
+    }).subscribe( sucess => {
+      console.log(sucess);
+    }, error => {
+      console.log(error);
+    });
+  }
+
   /* updateCourse(filter, change) {
     const updatedCourse = this.coursesApi.updateAll(filter, change);
     return updatedCourse;

@@ -8,7 +8,6 @@ import { SDKBrowserModule } from './shared/sdk/index';
 
 // Components
 import { AppComponent } from './app.component';
-import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CoursesComponent } from './components/courses/courses.component';
@@ -26,7 +25,6 @@ import { NavDetailItemComponent } from './components/nav-detail-item/nav-detail-
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent,
     WelcomeComponent,
     HeaderComponent,
     CoursesComponent,
