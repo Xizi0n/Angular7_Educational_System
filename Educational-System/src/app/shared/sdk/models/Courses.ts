@@ -3,15 +3,17 @@
 declare var Object: any;
 export interface CoursesInterface {
   "name": string;
-  "icon": string;
-  "chapters": Array<any>;
+  "icon"?: string;
+  "maxScore"?: number;
+  "lessons"?: Array<any>;
   "id"?: any;
 }
 
 export class Courses implements CoursesInterface {
   "name": string;
   "icon": string;
-  "chapters": Array<any>;
+  "maxScore": number;
+  "lessons": Array<any>;
   "id": any;
   constructor(data?: CoursesInterface) {
     Object.assign(this, data);
@@ -52,10 +54,15 @@ export class Courses implements CoursesInterface {
         },
         "icon": {
           name: 'icon',
-          type: 'string'
+          type: 'string',
+          default: 'fas fa-book-open'
         },
-        "chapters": {
-          name: 'chapters',
+        "maxScore": {
+          name: 'maxScore',
+          type: 'number'
+        },
+        "lessons": {
+          name: 'lessons',
           type: 'Array&lt;any&gt;'
         },
         "id": {

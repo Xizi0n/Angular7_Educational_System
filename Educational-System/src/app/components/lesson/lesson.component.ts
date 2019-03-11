@@ -54,4 +54,16 @@ export class LessonComponent implements OnInit {
     this.contentToShow.nativeElement.innerHTML = this.currentLesson;
   }
 
+  updateLesson() {
+    console.log(this.currentLesson);
+    this.courseService.updateLesson(this.currentLesson).subscribe( result => {
+      console.log(result);
+      this.isEditing = false;
+      this.courseService.dbOperation.next(true);
+    },
+    error => {
+      console.log(error);
+    });
+  }
+
 }

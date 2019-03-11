@@ -10,4 +10,25 @@
 #add {
     line-height: 48px;
     text-align: center;
+    margin-top: 10px;
+}
+
+div input {
+    width: 100%;
+    height: 34px;
+    padding-left: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.buttons button {
+    width: 50%;
+    min-width: 100px;
+    border: none;
+    height: 30px;
+    color: #fafafa;
 }

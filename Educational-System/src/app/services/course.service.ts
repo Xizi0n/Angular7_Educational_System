@@ -13,7 +13,11 @@ export class CourseService {
 
   courses = [];
   lessonToShow;
+  actualCourse;
+  actualIndex;
 
+  course$ = new BehaviorSubject(this.courses);
+  dbOperation = new BehaviorSubject(false);
   lessontoShow$ = new BehaviorSubject(this.lessonToShow);
 
   // LessonToShow$ = this.lessonToShow.asObservable();
@@ -40,32 +44,37 @@ export class CourseService {
   constructor(private http: HttpClient, private coursesApi: CoursesApi) {
     LoopBackConfig.setBaseURL(environment.loopBackBaseUrl);
     LoopBackConfig.setApiVersion(environment.loopBackApi);
+
+    this.dbOperation.subscribe( onGoingOperation => {
+      if ( onGoingOperation === true) {
+        this.getCourses().subscribe( courses => {
+          console.log(courses);
+        });
+      }
+    });
   }
 
-  setLessonToShow(lesson: any) {
+  setLessonToShow(lesson: any, course: any , index: any) {
     this.lessonToShow = lesson;
     this.lessontoShow$.next(this.lessonToShow);
+    this.actualCourse = course;
+    this.actualIndex = index;
   }
 
 
 
   createCourse(course) {
-     this.coursesApi.create(course).subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+     return this.coursesApi.create(course);
   }
 
   getCourses() {
     const course$ = this.coursesApi.find();
     course$.subscribe( courses => {
-      this.courses = courses;
-  });
+      this.course$.next(courses);
+    });
     return course$;
+
+    
   }
 
   getCourse(filter) {
@@ -74,21 +83,25 @@ export class CourseService {
   }
 
   updateCourse( id: any, lesson: any) {
-    this.coursesApi.updateAll( id, {
+    console.log(lesson);
+    return this.coursesApi.updateAll( id, {
       $push: {
         lessons: lesson
       }
-    }).subscribe( sucess => {
-      console.log(sucess);
-    }, error => {
-      console.log(error);
     });
   }
 
-  /* updateCourse(filter, change) {
-    const updatedCourse = this.coursesApi.updateAll(filter, change);
-    return updatedCourse;
-  } */
+  updateLesson(lesson: any) {
+    const id = 'lessons.' + this.actualIndex + '.lesson';
+    console.log(id);
+    const toSet = {};
+    toSet[id] = lesson;
+    console.log(toSet);
+    return this.coursesApi.updateAll({ _id: this.actualCourse.id }, {
+      $set: toSet
+    });
+
+  }
 
 
 }

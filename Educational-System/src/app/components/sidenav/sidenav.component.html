@@ -4,6 +4,14 @@
     <div *ngFor="let course of courses">
             <app-nav-item   class="navItem" [course]="course" ></app-nav-item>
     </div>
-    <div *ngIf="auth.canEdit" class="navItem" id="add" style="background-color: #7cb342"><i class="fas fa-plus-circle"></i></div>
+    <div *ngIf="auth.canEdit && !addCourse" class="navItem" id="add" (click)="showDropDown()" style="background-color: #7cb342"><i class="fas fa-plus-circle"></i></div>
+    <div class="dropDown" *ngIf="addCourse">
+        <input type="text" placeholder="Kurzusnév" [(ngModel)]="addTitle" >
+        <input type="text" placeholder="Ikon" [(ngModel)]="addIcon" >
+        <div class="buttons">
+            <button (click)="createCourse()" style="background-color:#7cb342" >Hozzáadás</button>
+            <button (click)="hideDropDown()" style="background-color: red">Mégse</button>
+        </div>
+    </div>
 </div>
 

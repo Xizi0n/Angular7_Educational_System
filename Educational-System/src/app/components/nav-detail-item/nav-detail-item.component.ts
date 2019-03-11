@@ -12,16 +12,18 @@ export class NavDetailItemComponent implements OnInit {
   @Input() course;
   inputEnabled = false;
   addTitle = '';
+  lessons;
 
   constructor(private courseService: CourseService, public auth: AuthService) { }
 
   ngOnInit() {
+    this.lessons = this.course.lessons;
   }
 
 
   showLesson(i) {
     console.log(i);
-    this.courseService.setLessonToShow(this.course.lessons[i].lesson);
+    this.courseService.setLessonToShow(this.course.lessons[i].lesson, this.course, i);
     console.log(this.course);
   }
 
@@ -43,10 +45,22 @@ export class NavDetailItemComponent implements OnInit {
         _id: String(this.course.id)
       };
       console.log(where);
-      this.courseService.updateCourse( where , {
-        title: this.addTitle,
-        lesson: '',
-        exercises: []
+      this.courseService.updateCourse( where ,
+        {
+            title: this.addTitle,
+            lesson: ' ',
+            exercises: []
+      }).subscribe( sucess => {
+        console.log(sucess);
+        this.courseService.dbOperation.next(true);
+        this.courseService.getCourse({ _id: this.course.id }).subscribe( course => {
+          this.lessons = this.course.lessons;
+          console.log(this.lessons);
+        });
+
+
+      }, error => {
+        console.log(error);
       });
     } else {
       console.log('HIBA!');

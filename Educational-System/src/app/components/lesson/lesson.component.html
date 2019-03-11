@@ -17,7 +17,7 @@
     <div *ngIf="isEditing">
       <app-ngx-editor [(ngModel)]="currentLesson"></app-ngx-editor>
       <div class="buttonGroup">
-          <div class="button" style="background-color: #1e88e5; color:#fafafa"><i class="fas fa-save"></i> &nbsp;Mentés</div>
+          <div class="button" style="background-color: #1e88e5; color:#fafafa" (click)="updateLesson()" ><i class="fas fa-save"></i> &nbsp;Mentés</div>
           <div class="button" style="background-color: #e53935; color: #fafafa" (click)="cancelEditing()"><i class="fas fa-ban"></i> &nbsp;Mégse</div>
       </div>
     </div>
