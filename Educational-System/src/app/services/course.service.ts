@@ -73,8 +73,6 @@ export class CourseService {
       this.course$.next(courses);
     });
     return course$;
-
-    
   }
 
   getCourse(filter) {
@@ -101,6 +99,20 @@ export class CourseService {
       $set: toSet
     });
 
+  }
+
+  deleteCourse(id: any) {
+    return this.coursesApi.deleteById(id);
+  }
+
+  deleteLesson(id, rtitle, index) {
+    return this.coursesApi.updateAll({ _id: id }, {
+      $pull: {
+        lessons : {
+          title: rtitle
+        }
+      }
+    });
   }
 
 

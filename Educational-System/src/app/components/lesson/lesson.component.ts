@@ -60,6 +60,9 @@ export class LessonComponent implements OnInit {
       console.log(result);
       this.isEditing = false;
       this.courseService.dbOperation.next(true);
+      setTimeout(() => {
+        this.showContent();
+      }, 100);
     },
     error => {
       console.log(error);

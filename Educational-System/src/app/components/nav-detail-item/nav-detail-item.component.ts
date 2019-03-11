@@ -71,4 +71,16 @@ export class NavDetailItemComponent implements OnInit {
     this.inputEnabled = true;
   }
 
+  deleteLesson( id, title, index) {
+    console.log(title);
+    if (confirm('Biztos törlöd ezt a leckét: ' + title + '?')) {
+      this.courseService.deleteLesson(id, title, index).subscribe( sucess => {
+        console.log(sucess);
+        this.courseService.dbOperation.next(true);
+      }, error => {
+        console.log(error);
+      });
+    }
+  }
+
 }

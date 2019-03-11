@@ -1,5 +1,7 @@
 <div *ngFor="let lesson of lessons; let i = index; let last = last" class="dropDown" (click)="collapse()" >
-  <div (click)="showLesson(i)"  class="navDetailItem"> {{lesson.title}}</div>
+  <div (click)="showLesson(i)"  class="navDetailItem"> {{lesson.title}}
+    <div *ngIf="auth.canEdit" class="delete" id="delete" (click)="deleteLesson(course.id, lesson.title, i)" ><i class="fas fa-trash"></i></div>
+  </div>
   <div *ngIf="last && auth.canEdit" class="navDetailItem" style="background-color:#7cb342; text-align: center; padding: 0" (click)="addInput()">
     <i *ngIf="!inputEnabled" class="fas fa-plus-circle"></i>
     <input *ngIf="inputEnabled" type="text" [(ngModel)]="addTitle" >
