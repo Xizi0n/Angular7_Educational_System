@@ -2,7 +2,10 @@
   <div class="card-header" (click)="toggleShow()" >
     <div style="margin-left: 10px;">{{index+1}}. Feladat</div>
     <div class="pont">{{exercise.score}} pont
-      <i *ngIf="!shouldBeVisible" class="fas fa-chevron-down"></i>
+      
+    </div>
+    <div class="dropDown" >
+      <i *ngIf="!shouldBeVisible"  class="fas fa-chevron-down"></i>
       <i *ngIf="shouldBeVisible" class="fas fa-chevron-up"></i>
     </div>
   </div>

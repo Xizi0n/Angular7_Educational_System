@@ -2,21 +2,31 @@
 .card {
     width: 80%;
     margin: 0 auto;
+    background-color: #fafafa;
+    border: 1px solid black;
+    margin-bottom: 5px;
 }
 
 .card-header {
     display: flex;
     flex-direction: row;
-    background-color: black;
+    background-color: #212121;
     color: #fafafa;
     height: 48px;
     line-height: 48px;
-    font-size: 30px;
+    font-size: 25px;
+    /* border-bottom: 1px solid rgba(250, 250, 250, 0.3); */
 }
 
 .pont {
     margin-right: 10px;
     margin-left: auto;
+    font-size: 0.5em;
+}
+
+.dropDown {
+    font-size: 30px;
+    margin-right: 10px;
 }
 
 textarea {
@@ -26,12 +36,15 @@ textarea {
 
 .description {
     padding: 0.5em;
+    color: #212121;
 }
 
 .buttons {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .buttons button {
@@ -39,6 +52,8 @@ textarea {
     width: 150px;
     /* min-width: 300px; */
     height: 30px;
+    margin-right: 5px;
+    border-radius: 3px;
 }
 
 .help {

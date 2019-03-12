@@ -1,2 +1,10 @@
-<ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+<select (change)="settingsChanged($event)" >
+    <option value="cpp">C++</option>
+    <option value="javascript">Javascript</option>
+    <option value="java">Java</option>
+    <option value="python">Python</option>
+    <option value="html">Html</option>
+</select>
+
+<ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (change)="editorChanged($event)"></ngx-monaco-editor>
 
