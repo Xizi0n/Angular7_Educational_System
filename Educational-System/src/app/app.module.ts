@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
 import { AppRoutingModule } from './app-routing.module';
 import { SDKBrowserModule } from './shared/sdk/index';
+import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 // Components
 import { AppComponent } from './app.component';
@@ -21,6 +22,9 @@ import { LessonComponent } from './components/lesson/lesson.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
 import { NavDetailItemComponent } from './components/nav-detail-item/nav-detail-item.component';
+import { ExercisesComponent } from './components/exercises/exercises/exercises.component';
+import { ExerciseComponent } from './components/exercises/exercise/exercise.component';
+import { MonacoEditorComponent } from './components/exercises/monaco-editor/monaco-editor.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { NavDetailItemComponent } from './components/nav-detail-item/nav-detail-
     LessonComponent,
     SidenavComponent,
     NavItemComponent,
-    NavDetailItemComponent
+    NavDetailItemComponent,
+    ExercisesComponent,
+    ExerciseComponent,
+    MonacoEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,8 @@ import { NavDetailItemComponent } from './components/nav-detail-item/nav-detail-
     HttpClientModule,
     FormsModule,
     SDKBrowserModule.forRoot(),
-    NgxEditorModule
+    NgxEditorModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [
     AuthService

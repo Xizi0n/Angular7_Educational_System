@@ -19,6 +19,7 @@ export class CourseService {
   course$ = new BehaviorSubject(this.courses);
   dbOperation = new BehaviorSubject(false);
   lessontoShow$ = new BehaviorSubject(this.lessonToShow);
+  actualCourse$ = new BehaviorSubject(this.actualCourse);
 
   // LessonToShow$ = this.lessonToShow.asObservable();
   mock = {
@@ -58,6 +59,7 @@ export class CourseService {
     this.lessonToShow = lesson;
     this.lessontoShow$.next(this.lessonToShow);
     this.actualCourse = course;
+    this.actualCourse$.next(course);
     this.actualIndex = index;
   }
 

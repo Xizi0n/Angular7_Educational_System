@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header" (click)="toggleShow()" >
+    <div style="margin-left: 10px;">{{index+1}}. Feladat</div>
+    <div class="pont">{{exercise.score}} pont
+      <i *ngIf="!shouldBeVisible" class="fas fa-chevron-down"></i>
+      <i *ngIf="shouldBeVisible" class="fas fa-chevron-up"></i>
+    </div>
+  </div>
+  <div *ngIf="shouldBeVisible">
+    <div class="description">
+      {{exercise.declaration}}
+    </div>
+    <div>
+      <app-monaco-editor></app-monaco-editor>
+    </div>
+    <div class="buttons">
+      <button class="help"><i class="fas fa-question-circle"></i> Segítség</button>
+      <button class="test " (click)="compile()" > <i class="fas fa-play-circle"></i> Kipróbálom</button>
+    </div>
+    <div *ngIf="compiled">
+      <textarea readonly>xyz.cpp: In function `int main()': xyz.cpp:6: `cout' undeclared (first use this function)</textarea>
+    </div>
+  </div>
+
+</div>

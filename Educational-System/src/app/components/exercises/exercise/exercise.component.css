@@ -1,0 +1,54 @@
+
+.card {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: #fafafa;
+    height: 48px;
+    line-height: 48px;
+    font-size: 30px;
+}
+
+.pont {
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+textarea {
+    width: 100%;
+    padding: 0;
+}
+
+.description {
+    padding: 0.5em;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.buttons button {
+    border: 0;
+    width: 150px;
+    /* min-width: 300px; */
+    height: 30px;
+}
+
+.help {
+    background-color: #1e88e5;
+}
+
+.test {
+    background-color: #00c853;
+}
+
+i {
+    margin-left: 20px;
+}

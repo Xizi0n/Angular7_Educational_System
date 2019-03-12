@@ -21,6 +21,9 @@
           <div class="button" style="background-color: #e53935; color: #fafafa" (click)="cancelEditing()"><i class="fas fa-ban"></i> &nbsp;Mégse</div>
       </div>
     </div>
+    <div class="exercises" *ngIf="!isEditing && courseService.actualCourse">
+      <app-exercises></app-exercises>
+    </div>
 
 
     <!-- <div *ngIf="!(courseService.lessonToShow !== null && courseService.lessonToShow !== undefined)">
