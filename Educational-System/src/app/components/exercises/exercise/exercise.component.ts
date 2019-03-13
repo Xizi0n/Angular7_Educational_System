@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CompileService } from 'src/app/services/compile.service';
 
 @Component({
   selector: 'app-exercise',
@@ -12,13 +13,9 @@ export class ExerciseComponent implements OnInit {
   compiled = false;
   shouldBeVisible = false;
 
-  constructor() { }
+  constructor(private compileService: CompileService) { }
 
   ngOnInit() {
-  }
-
-  compile() {
-    this.compiled = true;
   }
 
   toggleShow() {

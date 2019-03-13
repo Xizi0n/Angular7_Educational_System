@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   loopBackBaseUrl: 'http://127.0.0.1:3000',
-  loopBackApi: 'api'
+  loopBackApi: 'api',
+  compileUrl: 'http://127.0.0.1:3333'
 };
 
 /*

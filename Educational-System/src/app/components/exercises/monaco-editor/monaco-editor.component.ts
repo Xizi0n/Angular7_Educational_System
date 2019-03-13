@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { CompileService } from 'src/app/services/compile.service';
 
 @Component({
   selector: 'app-monaco-editor',
@@ -8,12 +9,15 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MonacoEditorComponent implements OnInit {
 
+  @ViewChild('copilerResult') private compilerResponse;
+
   editorOptions = {theme: 'vs-dark', language: 'javascript'};
-  code = 'function x() {\nconsole.log("Hello world!");\n}';
+  code = `console.log('Hello world!');`;
 
   editorOption$ = new BehaviorSubject(this.editorOptions);
+  compiled = false;
 
-  constructor() {
+  constructor( private compileService: CompileService) {
     this.editorOption$.subscribe( options => {
       this.editorOptions = null;
       this.editorOptions = options;
@@ -33,6 +37,16 @@ export class MonacoEditorComponent implements OnInit {
 
   editorChanged(event) {
     //
+  }
+
+  compile() {
+    this.compileService.compile(this.code, 'javascript').subscribe( (response: any) => {
+      console.log(response);
+      this.compilerResponse.nativeElement.value = response.result;
+    }, error => {
+      console.log(error);
+    });
+    this.compiled = true;
   }
 
 }
