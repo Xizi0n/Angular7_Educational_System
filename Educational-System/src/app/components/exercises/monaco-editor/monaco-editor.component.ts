@@ -9,6 +9,8 @@ import { CompileService } from 'src/app/services/compile.service';
 })
 export class MonacoEditorComponent implements OnInit {
 
+  selectedLanguage: string;
+
   @ViewChild('copilerResult') private compilerResponse;
 
   editorOptions = {theme: 'vs-dark', language: 'javascript'};
@@ -30,17 +32,13 @@ export class MonacoEditorComponent implements OnInit {
   }
 
   settingsChanged(event) {
-    this.editorOptions.language = document.getElementsByTagName('select')[0].value;
+    this.editorOptions.language = this.selectedLanguage;
     this.editorOption$.next(this.editorOptions);
 
   }
 
-  editorChanged(event) {
-    //
-  }
-
   compile() {
-    this.compileService.compile(this.code, 'javascript').subscribe( (response: any) => {
+    this.compileService.compile(this.code, this.selectedLanguage).subscribe( (response: any) => {
       console.log(response);
       this.compilerResponse.nativeElement.value = response.result;
     }, error => {
