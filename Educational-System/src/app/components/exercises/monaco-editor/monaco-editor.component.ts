@@ -30,7 +30,8 @@ export class MonacoEditorComponent implements OnInit {
   }
 
   settingsChanged(event) {
-    this.editorOptions.language = document.getElementsByTagName('select')[0].value;
+    console.log(event.target.value);
+    this.editorOptions.language = event.target.value;
     this.editorOption$.next(this.editorOptions);
 
   }
@@ -40,7 +41,8 @@ export class MonacoEditorComponent implements OnInit {
   }
 
   compile() {
-    this.compileService.compile(this.code, 'javascript').subscribe( (response: any) => {
+    this.compileService.compile(this.code, this.editorOptions.language).subscribe( (response: any) => {
+      console.log(this.code, this.editorOptions.language);
       console.log(response);
       this.compilerResponse.nativeElement.value = response.result;
     }, error => {

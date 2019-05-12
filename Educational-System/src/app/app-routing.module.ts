@@ -6,14 +6,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LessonComponent } from './components/lesson/lesson.component';
+import { AuthguardService } from './services/authguard.service';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
-  {path: 'kurzusok', component: CoursesComponent},
+  {path: 'kurzusok', component: CoursesComponent, canActivate: [AuthguardService]},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'lessons', component: LessonComponent }
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthguardService]},
+  {path: 'lessons', component: LessonComponent, canActivate: [AuthguardService] }
 ];
 
 @NgModule({
