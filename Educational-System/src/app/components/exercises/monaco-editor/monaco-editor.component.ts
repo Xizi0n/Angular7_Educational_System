@@ -32,18 +32,13 @@ export class MonacoEditorComponent implements OnInit {
   }
 
   settingsChanged(event) {
-<<<<<<< HEAD
     console.log(event.target.value);
     this.editorOptions.language = event.target.value;
-=======
-    this.editorOptions.language = this.selectedLanguage;
->>>>>>> 29ae5f75feed64251b31af1cdeb07c5945eefa3d
     this.editorOption$.next(this.editorOptions);
 
   }
 
   compile() {
-<<<<<<< HEAD
     this.compileService.compile(this.code, this.editorOptions.language).subscribe( (response: any) => {
       console.log(this.code, this.editorOptions.language);
 =======
