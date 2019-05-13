@@ -41,9 +41,9 @@ export class MonacoEditorComponent implements OnInit {
   compile() {
     this.compileService.compile(this.code, this.editorOptions.language).subscribe( (response: any) => {
       console.log(this.code, this.editorOptions.language);
-=======
-    this.compileService.compile(this.code, this.selectedLanguage).subscribe( (response: any) => {
->>>>>>> 29ae5f75feed64251b31af1cdeb07c5945eefa3d
+      console.log(response);
+      this.compilerResponse.nativeElement.value = response.result;
+    }, error => {
       console.log(error);
     });
     this.compiled = true;
