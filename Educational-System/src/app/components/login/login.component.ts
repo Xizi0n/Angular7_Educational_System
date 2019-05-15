@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { ForumService } from 'src/app/services/forum.service';
 
 
 @Component({
@@ -12,11 +13,13 @@ export class LoginComponent implements OnInit {
 
   public user: any = {};
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private forumService: ForumService) { }
 
   ngOnInit() {
     this.user.email = 'valaki@gmail.com';
     this.user.password = 'ASDQWE4';
+
+    this.forumService.getTopics();
   }
 
   login() {

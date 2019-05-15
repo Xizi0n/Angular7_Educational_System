@@ -42,5 +42,9 @@
   "Courses": {
     "dataSource": "mongo_test",
     "public": true
+  },
+  "Posts": {
+    "dataSource": "mongo_test",
+    "public": true
   }
 }

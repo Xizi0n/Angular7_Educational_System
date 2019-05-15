@@ -32,21 +32,26 @@ export class MonacoEditorComponent implements OnInit {
   }
 
   settingsChanged(event) {
-    console.log(event.target.value);
+    console.log(event);
     this.editorOptions.language = event.target.value;
     this.editorOption$.next(this.editorOptions);
 
   }
 
   compile() {
+    console.log(this.code);
     this.compileService.compile(this.code, this.editorOptions.language).subscribe( (response: any) => {
-      console.log(this.code, this.editorOptions.language);
+      // console.log(this.code, this.editorOptions.language);
       console.log(response);
       this.compilerResponse.nativeElement.value = response.result;
     }, error => {
       console.log(error);
     });
     this.compiled = true;
+  }
+
+  languageChanged(event) {
+    console.log(event);
   }
 
 }

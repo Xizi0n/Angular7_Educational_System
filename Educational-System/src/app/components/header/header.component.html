@@ -18,7 +18,7 @@
     </div>
   </div>
   
-  
+  <div class="headerItem" *ngIf="auth.isAuthenticated" routerLink="forum">Fórum</div>
   <div class="headerItem" *ngIf="!auth.isAuthenticated" routerLink="registration">Regisztráció</div>
   <div class="headerItem" *ngIf="!auth.isAuthenticated" routerLink="login">Bejelentkezés</div>
   <div class="headerItem" style="cursor: pointer" (click)="toggleAdmin()" [ngClass]="{'on': auth.canEdit, 'off': !auth.canEdit}" >Toggle Admin </div>

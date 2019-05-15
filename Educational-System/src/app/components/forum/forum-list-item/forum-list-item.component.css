@@ -1,0 +1,45 @@
+
+.row {
+    border: 1px solid rgba(33, 33, 33, 0.6);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.header {
+    background-color: #fafafa;
+    color: #212121;
+    font-size: 1.5em;
+    padding: 5px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+.list {
+    background-color: #fafafa;
+    color: #212121;
+    font-size: 1em;
+    padding: 5px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); 
+}
+
+.flexlist {
+    display: flex;
+    flex-direction: column;
+}
+.item {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.spacer {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+div i {
+    margin-right: 4px;
+}

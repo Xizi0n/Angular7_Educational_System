@@ -1,0 +1,12 @@
+
+<div class="div">
+  <div class="container">
+    <div class="title">Üdv, a Fórumon! <br>
+    Itt tudsz segítséget kérni a hallgatótársaidtól, illetve oktatóidtól.</div>
+  </div>
+  <div class="content">
+    <div class="topics">
+      <app-forum-list-item *ngFor="let topic of topics;"  [topic]="topic" ></app-forum-list-item>
+    </div>
+  </div>
+</div>

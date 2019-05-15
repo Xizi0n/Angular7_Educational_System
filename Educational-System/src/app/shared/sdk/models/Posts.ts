@@ -1,36 +1,36 @@
 /* tslint:disable */
 
 declare var Object: any;
-export interface CoursesInterface {
-  "name": string;
-  "icon": string;
-  "chapters": Array<any>;
+export interface PostsInterface {
+  "topic": string;
+  "rating": number;
+  "posts"?: Array<any>;
   "id"?: any;
 }
 
-export class Courses implements CoursesInterface {
-  "name": string;
-  "icon": string;
-  "chapters": Array<any>;
+export class Posts implements PostsInterface {
+  "topic": string;
+  "rating": number;
+  "posts": Array<any>;
   "id": any;
-  constructor(data?: CoursesInterface) {
+  constructor(data?: PostsInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `Courses`.
+   * i.e. `Posts`.
    */
   public static getModelName() {
-    return "Courses";
+    return "Posts";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of Courses for dynamic purposes.
+  * This method creates an instance of Posts for dynamic purposes.
   **/
-  public static factory(data: CoursesInterface): Courses{
-    return new Courses(data);
+  public static factory(data: PostsInterface): Posts{
+    return new Posts(data);
   }
   /**
   * @method getModelDefinition
@@ -41,22 +41,22 @@ export class Courses implements CoursesInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'Courses',
-      plural: 'Courses',
-      path: 'Courses',
+      name: 'Posts',
+      plural: 'Posts',
+      path: 'Posts',
       idName: 'id',
       properties: {
-        "name": {
-          name: 'name',
+        "topic": {
+          name: 'topic',
           type: 'string'
         },
-        "icon": {
-          name: 'icon',
-          default: 'fas fa-book-open',
-          type: 'string'
+        "rating": {
+          name: 'rating',
+          type: 'number',
+          default: 0
         },
-        "chapters": {
-          name: 'chapters',
+        "posts": {
+          name: 'posts',
           type: 'Array&lt;any&gt;'
         },
         "id": {

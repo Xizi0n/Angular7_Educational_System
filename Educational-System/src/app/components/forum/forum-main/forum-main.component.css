@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+    background-image: url(../../../../assets/images/profile.jpg);
+    background-size: cover;
+}
+
+.container {
+    width: 90%;
+    background-color: rgba(250, 250, 250, 0.72);
+    margin: 0 auto;
+    margin-top: 48px;
+    padding-top: 60px;
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    line-height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #212121;
+    border-radius: 5px;
+    color: #fafafa;
+}
+
+.content {
+    background-color: #212121ad;
+    height: 800px;
+    width: 90%;
+    margin: 0 auto;
+}

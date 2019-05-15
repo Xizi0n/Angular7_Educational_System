@@ -25,6 +25,9 @@ import { NavDetailItemComponent } from './components/nav-detail-item/nav-detail-
 import { ExercisesComponent } from './components/exercises/exercises/exercises.component';
 import { ExerciseComponent } from './components/exercises/exercise/exercise.component';
 import { MonacoEditorComponent } from './components/exercises/monaco-editor/monaco-editor.component';
+import { ForumMainComponent } from './components/forum/forum-main/forum-main.component';
+import { ForumListItemComponent } from './components/forum/forum-list-item/forum-list-item.component';
+import { ForumListDetailsComponent } from './components/forum/forum-list-details/forum-list-details.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import { MonacoEditorComponent } from './components/exercises/monaco-editor/mona
     ExercisesComponent,
     ExerciseComponent,
     MonacoEditorComponent,
+    ForumMainComponent,
+    ForumListItemComponent,
+    ForumListDetailsComponent,
   ],
   imports: [
     BrowserModule,

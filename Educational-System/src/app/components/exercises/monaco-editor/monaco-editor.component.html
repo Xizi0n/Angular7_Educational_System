@@ -1,5 +1,5 @@
-<select [(ngModel)]="selectedLanguage">
-    <option value="cpp">C++</option>
+<select [(ngModel)]="selectedLanguage" (change)="settingsChanged($event)">
+    <option value="c">C</option>
     <option value="javascript">Javascript</option>
     <option value="java">Java</option>
     <option value="python">Python</option>

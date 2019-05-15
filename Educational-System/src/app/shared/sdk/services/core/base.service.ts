@@ -131,8 +131,8 @@ export abstract class BaseLoopBackApi {
         } else {
           queryString = `?where=${encodeURIComponent(JSON.stringify(urlParams.where))}`;
         }
-        // én módosítottam
-        // delete urlParams.where;
+        // csina ne
+        //delete urlParams.where;
       }
     
       if (typeof customHeaders === 'function') {
