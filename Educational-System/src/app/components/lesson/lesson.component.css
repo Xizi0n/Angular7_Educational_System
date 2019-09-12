@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -11,10 +10,10 @@
 }
 
 .sidenav {
-    
+
     width: 15%;
     background-color: #2d2d2d;
-    border-right: 1px solid rgba( 250, 250, 250, 0.2);
+    border-right: 1px solid rgba(250, 250, 250, 0.2);
 }
 
 .buttonGroup {
@@ -39,13 +38,13 @@
 #actions {
     display: block;
     background-color: inherit;
-    
+
 }
 
-#actions > div {
+#actions>div {
     margin-left: auto;
     margin-right: 0;
-} 
+}
 
 #actions .actionButton {
     display: inline-block;
@@ -54,11 +53,12 @@
     border-radius: 3px;
     border: 0.5px solid black;
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 0px;
     max-width: 43px;
+    cursor: pointer;
 }
 
-#actions div * + * {
+#actions div *+* {
     font-size: 1.5em;
     padding: 0.33em;
     border-radius: 3px;
@@ -75,7 +75,7 @@
     font-size: 1.5em;
     padding: 0.33em;
     border-radius: 3px;
-    
+
 }
 
 .content {

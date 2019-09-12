@@ -1,8 +1,57 @@
 <div class="divider">
   <div class="feladatok">
     Feladatok
+    <i
+      *ngIf="auth.canEdit && auth.isEditMode"
+      class="fas fa-plus-circle"
+      (click)="addExercise()"
+    ></i>
+  </div>
+</div>
+<div *ngIf="isAdding && auth.canEdit && auth.isEditMode" class="add-exercise">
+  <textarea
+    type="text"
+    style="max-width: 100%"
+    class="input"
+    [(ngModel)]="declaration"
+    placeholder="declaration"
+  ></textarea>
+  <textarea
+    type="text"
+    style="max-width: 100%"
+    class="input"
+    [(ngModel)]="explanation"
+    placeholder="explanation"
+  ></textarea>
+  <select
+    type="text"
+    [(ngModel)]="language"
+    class="input"
+    placeholder="language"
+  >
+    <option value="c">C</option>
+    <option value="javascript">Javascript</option>
+    <option value="java">Java</option>
+    <option value="python">Python</option>
+  </select>
+  <input
+    type="number"
+    [(ngModel)]="score"
+    class="input"
+    min="0"
+    placeholder="score"
+  />
+  <div class="button-group">
+    <button class="button-action" (click)="createExercise()">
+      Feladat hozzáadása
+    </button>
+    <button class="button-cancel" (click)="dismiss()">Mégse</button>
   </div>
 </div>
 <div *ngFor="let exercise of exercises; let i = index">
-  <app-exercise [exercise]="exercise" [index]="i" ></app-exercise>
+  <app-exercise
+    [lessonId]="lesson._id"
+    [exercise]="exercise"
+    [index]="i"
+  ></app-exercise>
 </div>

@@ -1,46 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
-import { ForumService } from 'src/app/services/forum.service';
-
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
+import { ForumService } from "src/app/services/forum.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-
   public user: any = {};
 
-  constructor(private auth: AuthService, private router: Router, private forumService: ForumService) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private forumService: ForumService
+  ) {}
 
   ngOnInit() {
-    this.user.email = 'valaki@gmail.com';
-    this.user.password = 'ASDQWE4';
+    this.user.email = "admin@admin.com";
+    this.user.password = "Asdqwe1";
 
-    this.forumService.getTopics();
+    //this.forumService.getTopics();
   }
 
   login() {
     if (this.user !== null && this.user !== undefined) {
       this.auth.login(this.user).subscribe(
         response => {
-          localStorage.setItem('token', response.id );
-          localStorage.setItem('name', response.user.name);
-          localStorage.setItem('email', response.user.email);
-          console.log('response: ' +  JSON.stringify(response));
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("userId", response.userId);
+          localStorage.setItem("role", response.role);
           this.auth.isAuthenticated = true;
-          this.auth.loggedinUser =  response.user;
-          this.router.navigateByUrl('/kurzusok');
-          console.log('loggedinUSER' + JSON.stringify(this.auth.loggedinUser));
+          this.auth.canEdit =
+            localStorage.getItem("role") === "admin" ||
+            localStorage.getItem("role") === "teacher"
+              ? true
+              : false;
+          this.router.navigateByUrl("/kurzusok");
+          setTimeout(() => {
+            this.auth.logout();
+          }, 60 * 60 * 1000);
         },
         error => {
-          console.log('ERROR: ' + JSON.stringify(error));
+          console.log("ERROR: " + JSON.stringify(error));
         }
       );
     }
     console.log(this.user);
   }
-
 }

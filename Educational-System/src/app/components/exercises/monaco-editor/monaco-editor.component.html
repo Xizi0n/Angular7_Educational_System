@@ -1,20 +1,18 @@
-<select [(ngModel)]="selectedLanguage" (change)="settingsChanged($event)">
-    <option value="c">C</option>
-    <option value="javascript">Javascript</option>
-    <option value="java">Java</option>
-    <option value="python">Python</option>
-</select>
-
-<ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (change)="editorChanged($event)"></ngx-monaco-editor>
+<p style="color:black">Selected language {{ this.language }}</p>
+<ngx-monaco-editor
+  [options]="editorOptions"
+  [(ngModel)]="code"
+></ngx-monaco-editor>
 
 <div class="buttons">
-    <button class="help"><i class="fas fa-question-circle"></i> Segítség</button>
-    <button class="test " (click)="compile()" > <i class="fas fa-play-circle"></i> Kipróbálom</button>
+  <button class="help"><i class="fas fa-question-circle"></i> Segítség</button>
+  <button class="test " (click)="compile()">
+    <i class="fas fa-play-circle"></i> Kipróbálom
+  </button>
 </div>
 
 <div *ngIf="compiled">
-    <div class="compiler">
-        <textarea #copilerResult id="result" readonly></textarea>
-    </div>
+  <div class="compiler">
+    <textarea #copilerResult id="result" readonly></textarea>
+  </div>
 </div>
-

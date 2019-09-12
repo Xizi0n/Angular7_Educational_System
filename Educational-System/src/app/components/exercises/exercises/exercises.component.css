@@ -11,7 +11,51 @@
 }
 
 .feladatok {
-    
+
     font-size: 30px;
     line-height: 48px;
+}
+
+.input {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 30px;
+    font-size: 22px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.button-action {
+    padding: 7px;
+    color: whitesmoke;
+    background-color: #7cb342;
+    border: none;
+    font-size: 20px;
+    margin-right: 16px;
+}
+
+.button-cancel {
+    padding: 7px;
+    color: whitesmoke;
+    background-color: #CD2C32;
+    border: none;
+    font-size: 20px
+}
+
+.button-cancel:hover,
+.button-action:hover {
+    color: black;
+}
+
+.add-exercise {
+    width: 40%;
+    min-width: 300px;
+    margin: 0 auto;
 }

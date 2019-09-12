@@ -1,72 +1,84 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { CourseService } from 'src/app/services/course.service';
-import { AuthService } from '../../services/auth.service';
+import { Component, OnInit, Input, Output } from "@angular/core";
+import { CourseService } from "src/app/services/course.service";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
-  selector: 'app-sidenav',
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.css']
+  selector: "app-sidenav",
+  templateUrl: "./sidenav.component.html",
+  styleUrls: ["./sidenav.component.css"]
 })
 export class SidenavComponent implements OnInit {
-
   @Output() courses;
-  hasArrived = false;
 
   addCourse = false;
-  addTitle = '';
-  addIcon = '';
+  addTitle = "";
+  addIcon = "";
 
   constructor(private courseService: CourseService, public auth: AuthService) {
-    courseService.getCourses().subscribe(courses => {
+    /* this.courseService.course$.subscribe(courses => {
+      console.log("Courses BehaviourSubject:", courses);
       this.courses = courses;
       this.hasArrived = true;
-      // console.log('SIDENAV COURSES' + JSON.stringify(this.courses));
-    });
 
-    this.courseService.course$.subscribe(
-      courses => {
-        console.log('Courses BehaviourSubject:');
+      console.log("this.courses:", this.courses);
+    });
+    courseService.getCourses(); */
+    this.courseService.dbOperation.subscribe(operation => {
+      console.log("[DB operation happedned]: refreshing courses ");
+      this.courseService.getAllCourses().subscribe(courses => {
         this.courses = courses;
       });
+    });
   }
 
   ngOnInit() {
+    this.courseService.getAllCourses().subscribe(courses => {
+      this.courses = courses;
+      this.hasArrived = true;
+    });
   }
 
   createCourse() {
-    if (this.addIcon !== '' && this.addIcon !== null && this.addIcon !== undefined) {
-      console.log('Inserting with custom icon');
-      this.courseService.createCourse(
-        {
+    if (this.addIcon) {
+      console.log("Inserting with custom icon");
+      this.courseService
+        .createCourse({
           name: this.addTitle,
-          icon: this.addIcon,
-
-        }
-      ).subscribe(
-        response => {
-          console.log(response);
-          window.location.reload();
-        },
-        error => {
-          console.log(error);
-        }
-      );
+          icon: this.addIcon
+        })
+        .subscribe(
+          response => {
+            console.log(response);
+            //window.location.reload();
+            this.courseService.getAllCourses().subscribe(courses => {
+              this.courses = courses;
+              //this.hasArrived = true;
+              // console.log('SIDENAV COURSES' + JSON.stringify(this.courses));
+            });
+          },
+          error => {
+            console.log(error);
+          }
+        );
     } else {
-      console.log('inserting with default icon');
-      this.courseService.createCourse(
-        {
+      console.log("inserting with default icon");
+      this.courseService
+        .createCourse({
           name: this.addTitle,
-
-        }
-      ).subscribe(
-        response => {
-          console.log(response);
-          window.location.reload();
-        },
-        error => {
-          console.log(error);
-        }
-      );
+          icon: "fas fa-book-open"
+        })
+        .subscribe(
+          response => {
+            console.log(response);
+            this.courseService.getAllCourses().subscribe(courses => {
+              this.courses = courses;
+              this.hideDropDown();
+            });
+          },
+          error => {
+            console.log(error);
+          }
+        );
     }
   }
 
@@ -75,9 +87,8 @@ export class SidenavComponent implements OnInit {
   }
 
   hideDropDown() {
-    this.addIcon = '';
-    this.addTitle = '';
+    this.addIcon = "";
+    this.addTitle = "";
     this.addCourse = false;
   }
-
 }

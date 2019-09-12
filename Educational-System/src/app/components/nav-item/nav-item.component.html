@@ -1,11 +1,20 @@
-
-<div (click)="toggleOpen()" [ngClass]="{ open: isOpen}" class="navItem flex">
-        <i ngClass="{{course.icon}}"></i>
-    <span id="name">{{course.name}}</span>
-    <span> <i *ngIf="!isOpen"  class="fas fa-chevron-down"></i> </span> 
-    <span> <i *ngIf="isOpen"  class="fas fa-chevron-up"></i></span>
-    <div *ngIf="auth.canEdit" class="delete" id="delete" (click)="deleteCourse(course.id)" ><i class="fas fa-trash"></i></div>
+<div (click)="toggleOpen()" [ngClass]="{ open: isOpen }" class="navItem flex">
+  <i ngClass="{{ course.icon }}"></i>
+  <span id="name">{{ course.name }}</span>
+  <span> <i *ngIf="!isOpen" class="fas fa-chevron-down"></i> </span>
+  <span> <i *ngIf="isOpen" class="fas fa-chevron-up"></i></span>
+  <div
+    *ngIf="auth.canEdit && auth.isEditMode"
+    class="delete"
+    id="delete"
+    (click)="deleteCourse(course._id)"
+  >
+    <i class="fas fa-trash"></i>
+  </div>
 </div>
 <div *ngIf="isOpen">
-        <app-nav-detail-item (click)="close()" [course]="course"></app-nav-detail-item>
+  <app-nav-detail-item
+    (click)="close()"
+    [course]="course"
+  ></app-nav-detail-item>
 </div>

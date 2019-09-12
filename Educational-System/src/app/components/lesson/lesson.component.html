@@ -1,30 +1,73 @@
-
 <div class="wrapper">
   <div class="sidenav">
     <app-sidenav class="sidenav"></app-sidenav>
   </div>
   <div class="content" id="content">
-    <div id="actions">
-        <div style="max-width:100px; margin-bottom: 15px">
-            <div *ngIf="isEditing === false && currentLesson !== ''" class="actionButton" (click)="startEdit()" style="color:#212121; background-color:#fafafa"><i class="fas fa-edit"></i></div>
-            <div  *ngIf="isDark" class="actionButton" (click)="changeColor()" style="background-color: #fafafa; color: #212121" ><i class="fas fa-sun"></i></div>
-            <div  *ngIf="!isDark" class="actionButton" (click)="changeColor()" style="background-color: #212121; color: #fafafa" ><i class="fas fa-moon"></i></div>
+    <div id="actions" *ngIf="hasLessonToShow">
+      <div style="max-width:150px; margin-bottom: 15px">
+        <div
+          *ngIf="isEditing === false && currentLesson !== ''"
+          class="actionButton"
+          (click)="savePdf()"
+          style="color:#212121; background-color:#fafafa"
+        >
+          <i class="fas fa-file-download"></i>
         </div>
+
+        <div
+          *ngIf="isEditing === false && currentLesson !== ''"
+          class="actionButton"
+          (click)="startEdit()"
+          style="color:#212121; background-color:#fafafa"
+        >
+          <i class="fas fa-edit"></i>
+        </div>
+        <div
+          *ngIf="isDark"
+          class="actionButton"
+          (click)="changeColor()"
+          style="background-color: #fafafa; color: #212121"
+        >
+          <i class="fas fa-sun"></i>
+        </div>
+        <div
+          *ngIf="!isDark"
+          class="actionButton"
+          (click)="changeColor()"
+          style="background-color: #212121; color: #fafafa"
+        >
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
     </div>
     <div *ngIf="!isEditing">
-      <div #contentToShow></div>
+      <div #contentToShow id="toPdf"></div>
     </div>
     <div *ngIf="isEditing">
-      <app-ngx-editor [(ngModel)]="currentLesson"></app-ngx-editor>
+      <app-ngx-editor [(ngModel)]="currentLesson.content"></app-ngx-editor>
       <div class="buttonGroup">
-          <div class="button" style="background-color: #1e88e5; color:#fafafa" (click)="updateLesson()" ><i class="fas fa-save"></i> &nbsp;Mentés</div>
-          <div class="button" style="background-color: #e53935; color: #fafafa" (click)="cancelEditing()"><i class="fas fa-ban"></i> &nbsp;Mégse</div>
+        <div
+          class="button"
+          style="background-color: #1e88e5; color:#fafafa"
+          (click)="updateLesson()"
+        >
+          <i class="fas fa-save"></i> &nbsp;Mentés
+        </div>
+        <div
+          class="button"
+          style="background-color: #e53935; color: #fafafa"
+          (click)="cancelEditing()"
+        >
+          <i class="fas fa-ban"></i> &nbsp;Mégse
+        </div>
       </div>
     </div>
     <div class="exercises" *ngIf="!isEditing && courseService.actualCourse">
-      <app-exercises></app-exercises>
+      <app-exercises
+        [lesson]="currentLesson"
+        *ngIf="hasLessonToShow"
+      ></app-exercises>
     </div>
-
 
     <!-- <div *ngIf="!(courseService.lessonToShow !== null && courseService.lessonToShow !== undefined)">
         <div id="highlight">Kérem válasszon a tárgyak közül!</div>

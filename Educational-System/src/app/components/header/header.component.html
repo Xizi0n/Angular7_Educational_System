@@ -1,26 +1,66 @@
 <div class="header">
   <span id="brand" routerLink="kurzusok">Tudástár</span>
-  <div class="headerItem dropdown icon" *ngIf="auth.isAuthenticated" (click)="toggleDropdown()"><i class="fas fa-ellipsis-v"></i></div>
-  <div class="headerItem icon" style="width: 30px;" *ngIf="auth.isAuthenticated && enableNotifications">
+  <div
+    class="headerItem dropdown icon"
+    *ngIf="auth.isAuthenticated"
+    (click)="toggleDropdown()"
+  >
+    <i class="fas fa-ellipsis-v"></i>
+  </div>
+  <div
+    class="headerItem icon"
+    style="width: 30px;"
+    *ngIf="auth.isAuthenticated && enableNotifications"
+  >
     <i (click)="toggleNotifications()" class="fas fa-bell"></i>
   </div>
-  <div class="headerItem icon" id="warn" style="width: 30px;" *ngIf="auth.isAuthenticated && !enableNotifications">
+  <div
+    class="headerItem icon"
+    id="warn"
+    style="width: 30px;"
+    *ngIf="auth.isAuthenticated && !enableNotifications"
+  >
     <i (click)="toggleNotifications()" class="fas fa-bell-slash"></i>
   </div>
-  <div id="loggedinUser" *ngIf="auth.isAuthenticated" class="headerItem" >
-    <div class="headerItem" >
-      <img id="profilePicture" routerLink="profile" src="../../../assets/images/user_mock-profile.svg" title="{{auth.loggedinUser.name}}"> 
+  <div id="loggedinUser" *ngIf="auth.isAuthenticated" class="headerItem">
+    <div class="headerItem">
+      <img
+        id="profilePicture"
+        routerLink="profile"
+        src="../../../assets/images/user_mock-profile.svg"
+        title="{{ auth.loggedinUser.name }}"
+      />
     </div>
-    <div class="headerItem">{{auth.loggedinUser.name}}</div>
-    <div class="dropdown-content" [ngClass]="{'visible': dropdownToogle }">
+    <div class="headerItem">{{ auth.loggedinUser.name }}</div>
+    <div class="dropdown-content" [ngClass]="{ visible: dropdownToogle }">
       <a routerLink="profile"> Profil</a>
-      <a (click)="logout()" style="color:red;"> <i class="fas fa-sign-out-alt"></i> Kijelentkezés</a>
+      <a (click)="logout()" style="color:red;">
+        <i class="fas fa-sign-out-alt"></i> Kijelentkezés</a
+      >
     </div>
   </div>
-  
-  <div class="headerItem" *ngIf="auth.isAuthenticated" routerLink="forum">Fórum</div>
-  <div class="headerItem" *ngIf="!auth.isAuthenticated" routerLink="registration">Regisztráció</div>
-  <div class="headerItem" *ngIf="!auth.isAuthenticated" routerLink="login">Bejelentkezés</div>
-  <div class="headerItem" style="cursor: pointer" (click)="toggleAdmin()" [ngClass]="{'on': auth.canEdit, 'off': !auth.canEdit}" >Toggle Admin </div>
+
+  <div class="headerItem" *ngIf="auth.isAuthenticated" routerLink="forum">
+    Fórum
+  </div>
+  <div
+    class="headerItem"
+    *ngIf="!auth.isAuthenticated"
+    routerLink="registration"
+  >
+    Regisztráció
+  </div>
+  <div class="headerItem" *ngIf="!auth.isAuthenticated" routerLink="login">
+    Bejelentkezés
+  </div>
+  <div
+    *ngIf="auth.canEdit"
+    class="headerItem"
+    style="cursor: pointer"
+    (click)="toggleEditMode()"
+    [ngClass]="{ on: auth.isEditMode, off: !auth.isEditMode }"
+  >
+    Edit mode
+  </div>
   <div class="burger"><i class="fas fa-bars"></i></div>
 </div>

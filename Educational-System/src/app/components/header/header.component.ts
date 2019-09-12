@@ -1,33 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "src/app/services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-
   dropdownToogle = false;
   enableNotifications = true;
 
-  constructor(public auth: AuthService, private router: Router) { }
+  constructor(public auth: AuthService, private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logout() {
-    this.auth.logout().subscribe(
-      response => {
-        console.log(JSON.stringify(response));
-        this.auth.isAuthenticated = false;
-        this.auth.loggedinUser = {};
-        localStorage.clear();
-        this.router.navigateByUrl('/login');
-      }, error => {
-        console.log('ERROR: ' + JSON.stringify(error));
-      });
+    this.auth.logout();
   }
   toggleDropdown() {
     this.dropdownToogle = !this.dropdownToogle;
@@ -36,8 +25,7 @@ export class HeaderComponent implements OnInit {
     this.enableNotifications = !this.enableNotifications;
   }
 
-  toggleAdmin() {
-    this.auth.canEdit = !this.auth.canEdit;
+  toggleEditMode() {
+    this.auth.isEditMode = !this.auth.isEditMode;
   }
-
 }

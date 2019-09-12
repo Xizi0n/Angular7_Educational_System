@@ -1,4 +1,3 @@
-
 .card {
     width: 80%;
     margin: 0 auto;
@@ -29,6 +28,22 @@
     margin-right: 10px;
 }
 
+.button {
+    padding: 5px;
+    margin-right: 16px;
+    border-radius: 5px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.button-modify {
+    background-color: #1e88e5;
+}
+
+.button-delete {
+    background-color: #e53935;
+}
+
 textarea {
     width: 100%;
     padding: 0;
@@ -41,4 +56,50 @@ textarea {
 
 i {
     margin-left: 20px;
+}
+
+.input {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 30px;
+    font-size: 22px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.button-action {
+    padding: 7px;
+    color: whitesmoke;
+    background-color: #1e88e5;
+    border: none;
+    font-size: 20px;
+    margin-right: 16px;
+    border-radius: 5px;
+}
+
+.button-cancel {
+    padding: 7px;
+    color: whitesmoke;
+    background-color: #e53935;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.button-cancel:hover,
+.button-action:hover {
+    color: black;
+}
+
+.add-exercise {
+    width: 40%;
+    min-width: 300px;
+    margin: 16px auto;
 }

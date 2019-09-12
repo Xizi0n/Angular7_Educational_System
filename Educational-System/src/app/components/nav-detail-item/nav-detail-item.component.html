@@ -1,18 +1,30 @@
-<div *ngFor="let lesson of lessons; let i = index; let last = last" class="dropDown" (click)="collapse()" >
-  <div (click)="showLesson(i)"  class="navDetailItem"> {{lesson.title}}
-    <div *ngIf="auth.canEdit" class="delete" id="delete" (click)="deleteLesson(course.id, lesson.title, i)" ><i class="fas fa-trash"></i></div>
-  </div>
-  <div *ngIf="last && auth.canEdit" class="navDetailItem" style="background-color:#7cb342; text-align: center; padding: 0" (click)="addInput()">
-    <i *ngIf="!inputEnabled" class="fas fa-plus-circle"></i>
-    <input *ngIf="inputEnabled" type="text" [(ngModel)]="addTitle" >
-    <button *ngIf="inputEnabled" (click)="addLesson()" >Add</button>
+<div
+  *ngFor="let lesson of lessons; let i = index; let last = last"
+  class="dropDown"
+  (click)="collapse()"
+>
+  <div (click)="showLesson(i, course)" class="navDetailItem">
+    {{ lesson.title }}
+    <div
+      *ngIf="auth.canEdit && auth.isEditMode"
+      class="delete"
+      id="delete"
+      (click)="deleteLesson(i)"
+    >
+      <i class="fas fa-trash"></i>
+    </div>
   </div>
 </div>
 
-<div class="dropDown" *ngIf="course.lessons === undefined || course.lessons === null">
-    <div *ngIf="auth.canEdit" class="navDetailItem" style="background-color:#7cb342; text-align: center; padding: 0" (click)="addInput()">
-        <i *ngIf="!inputEnabled" class="fas fa-plus-circle"></i>
-        <input *ngIf="inputEnabled" type="text" [(ngModel)]="addTitle" >
-        <button *ngIf="inputEnabled" (click)="addLesson()" >Add</button>
-      </div>
+<div class="dropDown">
+  <div
+    *ngIf="auth.canEdit && auth.isEditMode"
+    class="navDetailItem"
+    style="background-color:#7cb342; text-align: center; padding: 0"
+    (click)="addInput()"
+  >
+    <i *ngIf="!inputEnabled" class="fas fa-plus-circle"></i>
+    <input *ngIf="inputEnabled" type="text" [(ngModel)]="addTitle" />
+    <button *ngIf="inputEnabled" (click)="addLesson()">Add</button>
+  </div>
 </div>

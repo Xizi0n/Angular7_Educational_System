@@ -1,21 +1,84 @@
 <div class="card">
-  <div class="card-header" (click)="toggleShow()" >
-    <div style="margin-left: 10px;">{{index+1}}. Feladat</div>
-    <div class="pont">{{exercise.score}} pont
-      
+  <div class="card-header">
+    <div style="margin-left: 10px;">{{ index + 1 }}. Feladat</div>
+
+    <div class="pont">
+      <span
+        *ngIf="auth.canEdit && auth.isEditMode"
+        class="button button-delete"
+        (click)="deleteExercise()"
+        >Törlés</span
+      >
+      <span
+        *ngIf="auth.canEdit && auth.isEditMode"
+        class="button button-modify"
+        (click)="toggleEdit()"
+        >Módosítás</span
+      >
+      {{ exercise.score }} pont
     </div>
-    <div class="dropDown" >
-      <i *ngIf="!shouldBeVisible"  class="fas fa-chevron-down"></i>
-      <i *ngIf="shouldBeVisible" class="fas fa-chevron-up"></i>
+    <div class="dropDown">
+      <i
+        *ngIf="!shouldBeVisible"
+        (click)="toggleShow()"
+        class="fas fa-chevron-down"
+      ></i>
+      <i
+        *ngIf="shouldBeVisible"
+        (click)="toggleShow()"
+        class="fas fa-chevron-up"
+      ></i>
     </div>
   </div>
   <div *ngIf="shouldBeVisible">
     <div class="description">
-      {{exercise.declaration}}
+      {{ exercise.declaration }}
     </div>
     <div>
-      <app-monaco-editor></app-monaco-editor>
+      <app-monaco-editor [language]="exercise.language"></app-monaco-editor>
     </div>
   </div>
-
+  <div
+    *ngIf="isEditing && auth.canEdit && auth.isEditMode"
+    class="add-exercise"
+  >
+    <textarea
+      type="text"
+      style="max-width: 100%"
+      class="input"
+      [(ngModel)]="updatedValues.declaration"
+      placeholder="declaration"
+    ></textarea>
+    <textarea
+      type="text"
+      style="max-width: 100%"
+      class="input"
+      [(ngModel)]="updatedValues.explanation"
+      placeholder="explanation"
+    ></textarea>
+    <select
+      type="text"
+      [(ngModel)]="updatedValues.language"
+      class="input"
+      placeholder="language"
+    >
+      <option value="c">C</option>
+      <option value="javascript">Javascript</option>
+      <option value="java">Java</option>
+      <option value="python">Python</option>
+    </select>
+    <input
+      type="number"
+      [(ngModel)]="updatedValues.score"
+      class="input"
+      min="0"
+      placeholder="score"
+    />
+    <div class="button-group">
+      <button class="button-action" (click)="updateExercise()">
+        Feladat módosítása
+      </button>
+      <button class="button-cancel" (click)="toggleEdit()">Mégse</button>
+    </div>
+  </div>
 </div>
