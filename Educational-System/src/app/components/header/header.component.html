@@ -28,10 +28,10 @@
         id="profilePicture"
         routerLink="profile"
         src="../../../assets/images/user_mock-profile.svg"
-        title="{{ auth.loggedinUser.name }}"
+        title=""
       />
     </div>
-    <div class="headerItem">{{ auth.loggedinUser.name }}</div>
+    <div class="headerItem"></div>
     <div class="dropdown-content" [ngClass]="{ visible: dropdownToogle }">
       <a routerLink="profile"> Profil</a>
       <a (click)="logout()" style="color:red;">
