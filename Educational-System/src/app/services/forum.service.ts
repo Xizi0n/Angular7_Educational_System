@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { PostsApi, LoopBackConfig } from "../shared/sdk";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { BehaviorSubject } from "rxjs";
@@ -11,18 +10,18 @@ export class ForumService {
   datachanged = true;
   dataChanged$ = new BehaviorSubject(this.datachanged);
 
-  constructor(private http: HttpClient, private postsApi: PostsApi) {}
+  constructor(private http: HttpClient) {}
 
   createTopic(topic) {
-    return this.postsApi.create(topic);
+    //return this.postsApi.create(topic);
   }
 
   getTopics() {
-    return this.postsApi.find();
+    //return this.postsApi.find();
   }
 
   addReply(oid, index, body) {
-    const asd = "posts[0].$.replies";
+    /* const asd = "posts[0].$.replies";
     console.log(asd);
     return this.postsApi.updateAll(
       { id: oid },
@@ -31,6 +30,6 @@ export class ForumService {
           "posts.0.replies": body
         }
       }
-    );
+    ); */
   }
 }

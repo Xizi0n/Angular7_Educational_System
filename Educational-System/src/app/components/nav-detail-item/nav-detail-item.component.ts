@@ -42,11 +42,13 @@ export class NavDetailItemComponent implements OnInit {
         sucess => {
           console.log(sucess);
           this.courseService.dbOperation.next(true);
-          this.courseService.getCourse(this.course._id).subscribe(course => {
-            this.lessons = course.lessons;
-            console.log(this.lessons);
-            this.inputEnabled = false;
-          });
+          this.courseService
+            .getCourse(this.course._id)
+            .subscribe((course: any) => {
+              this.lessons = course.lessons;
+              console.log(this.lessons);
+              this.inputEnabled = false;
+            });
         },
         error => {
           console.log(error);
@@ -73,9 +75,11 @@ export class NavDetailItemComponent implements OnInit {
         sucess => {
           console.log(sucess);
           this.courseService.dbOperation.next(true);
-          this.courseService.getCourse(this.course._id).subscribe(course => {
-            this.lessons = course.lessons;
-          });
+          this.courseService
+            .getCourse(this.course._id)
+            .subscribe((course: any) => {
+              this.lessons = course.lessons;
+            });
         },
         error => {
           console.log(error);

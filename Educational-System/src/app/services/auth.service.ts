@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 })
 export class AuthService {
   isAuthenticated = false;
-  loggedinUser = {};
+  loggedinUser: any;
   canEdit = false;
   isEditMode = false;
 

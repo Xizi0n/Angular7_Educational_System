@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BaseUrl: "http://127.0.0.1:3333",
+  BaseUrl: "http://167.86.98.54:4001",
   CompilerUrl: "http://167.86.98.54:4000/compile"
 };
 

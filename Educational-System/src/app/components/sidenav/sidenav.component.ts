@@ -34,7 +34,6 @@ export class SidenavComponent implements OnInit {
   ngOnInit() {
     this.courseService.getAllCourses().subscribe(courses => {
       this.courses = courses;
-      this.hasArrived = true;
     });
   }
 

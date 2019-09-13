@@ -11,10 +11,7 @@ export class NavItemComponent implements OnInit {
   @Input() course;
   isOpen = false;
 
-  constructor(
-    private courseService: CourseService,
-    private auth: AuthService
-  ) {}
+  constructor(private courseService: CourseService, public auth: AuthService) {}
 
   ngOnInit() {}
 

@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { LoopBackConfig } from "../shared/sdk";
-import { CoursesApi } from "../shared/sdk";
 import { environment } from "../../environments/environment";
 import { Subject, BehaviorSubject } from "rxjs";
 
@@ -70,7 +68,7 @@ export class CourseService {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
       })
-      .subscribe(courses => {
+      .subscribe((courses: any) => {
         console.log(
           "--------------------------getCourses -------------------------"
         );
