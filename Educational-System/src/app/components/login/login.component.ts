@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("token", response.token);
           localStorage.setItem("userId", response.userId);
           localStorage.setItem("role", response.role);
+          localStorage.setItem("imageUrl", response.image);
           this.auth.isAuthenticated = true;
           this.auth.canEdit =
             localStorage.getItem("role") === "admin" ||

@@ -7,7 +7,13 @@ import {
 } from "@angular/core";
 import { CourseService } from "src/app/services/course.service";
 import * as jsPDF from "jspdf";
+import { AuthService } from "src/app/services/auth.service";
+import { environment } from "../../../environments/environment";
 
+interface fileToUpload {
+  file: any;
+  name: any;
+}
 @Component({
   selector: "app-lesson",
   templateUrl: "./lesson.component.html",
@@ -19,9 +25,16 @@ export class LessonComponent implements OnInit, OnDestroy {
   currentLesson;
   actualCourse;
   hasLessonToShow = false;
+  addFile = false;
+  fileToUpload: fileToUpload = {
+    file: "",
+    name: ""
+  };
+  baseUrl = environment.BasePdfUrl;
+  selectedfile;
   @ViewChild("contentToShow") contentToShow: ElementRef;
 
-  constructor(public courseService: CourseService) {}
+  constructor(public courseService: CourseService, public auth: AuthService) {}
 
   ngOnInit() {
     this.courseService.lessontoShow$.subscribe(changed => {
@@ -38,6 +51,25 @@ export class LessonComponent implements OnInit, OnDestroy {
       console.log(actualCourse);
       this.actualCourse = actualCourse;
     });
+  }
+
+  fileChanged(e) {
+    this.fileToUpload.file = e.target.files[0];
+    this.selectedfile = this.fileToUpload.file.name;
+    console.log(this.fileToUpload.file.name);
+  }
+
+  uploadPdf() {
+    console.log(this.fileToUpload);
+    this.courseService
+      .uploadPdf(this.fileToUpload, this.currentLesson)
+      .subscribe(result => {
+        console.log(result);
+      });
+  }
+
+  toggleUpload() {
+    this.addFile = !this.addFile;
   }
 
   changeColor() {

@@ -201,4 +201,16 @@ export class CourseService {
       }
     );
   }
+
+  uploadPdf(fileToUpload, lesson) {
+    const formData = new FormData();
+    formData.append("pdf", fileToUpload.file);
+    formData.append("name", fileToUpload.name);
+    formData.append("lessonId", lesson._id);
+    return this.http.post(environment.UploadPdfUrl, formData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    });
+  }
 }

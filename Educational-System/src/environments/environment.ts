@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-  BaseUrl: "http://167.86.98.54:4001",
+  //BaseUrl: "http://167.86.98.54:4001",
+  BaseUrl: "http://127.0.0.1:3333",
   CompilerUrl: "http://167.86.98.54:4000/compile",
-  UploadImageUrl: "http://127.0.0.1:4002/uploadImage"
+  UploadImageUrl: "http://127.0.0.1:4002/uploadImage",
+  BaseImageUrl: "http://127.0.0.1:4002/images/",
+  UploadPdfUrl: "http://127.0.0.1:4003/uploadPdf",
+  BasePdfUrl: "http://127.0.0.1:4003/pdf/"
 };
 
 /*

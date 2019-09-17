@@ -10,6 +10,7 @@ import { environment } from "../../../environments/environment";
 })
 export class ProfileComponent implements OnInit {
   fileSelector;
+  imageUrl = environment.BaseImageUrl;
 
   constructor(public auth: AuthService, private http: HttpClient) {}
 
@@ -22,7 +23,11 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.profilePicture$.subscribe(name => {
+      this.imageUrl = environment.BaseImageUrl + name;
+    });
     this.fileSelector = this.buildFileSelector();
+    //this.imageUrl = this.imageUrl + "/" + localStorage.getItem("imageUrl");
   }
 
   uploadfile() {
@@ -33,10 +38,15 @@ export class ProfileComponent implements OnInit {
     const image = e.target.files[0];
     const formData = new FormData();
     formData.append("image", image);
-    this.http.post(environment.UploadImageUrl, formData, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    });
+    this.http
+      .post(environment.UploadImageUrl, formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      })
+      .subscribe((data: any) => {
+        console.log("[PostImage data]:", data);
+        this.auth.profilePicture$.next(data.name);
+      });
   }
 }

@@ -67,6 +67,37 @@
     margin-right: 0;
 }
 
+#fileselector {
+    color: black;
+}
+
+.files {
+    font-size: 30px;
+    line-height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #212121;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.8);
+}
+
+.file-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.file-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+
+
+
 #edit {
     position: absolute;
     top: 55px;
@@ -105,6 +136,35 @@
 .sidenav {
     margin-top: 48px;
     min-width: 278px;
+}
+
+.addFile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.addFilePanel {
+    background-color: #fafafa;
+    border-radius: 5px;
+    padding: 3px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.addFile__input {
+    font-size: 18px;
+    padding: 3px;
+}
+
+.addFilePanel button {
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 8px;
+    border-radius: 5px;
 }
 
 #highlight {

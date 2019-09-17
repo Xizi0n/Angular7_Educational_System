@@ -1,0 +1,12 @@
+.file-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+i {
+    font-size: 40px;
+}

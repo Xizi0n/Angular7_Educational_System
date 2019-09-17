@@ -4,7 +4,20 @@
   </div>
   <div class="content" id="content">
     <div id="actions" *ngIf="hasLessonToShow">
-      <div style="max-width:150px; margin-bottom: 15px">
+      <div style="max-width:200px; margin-bottom: 15px">
+        <div
+          *ngIf="
+            isEditing === false &&
+            currentLesson !== '' &&
+            auth.canEdit &&
+            auth.isEditMode
+          "
+          class="actionButton"
+          (click)="toggleUpload()"
+          style="color:#212121; background-color:#7cb342"
+        >
+          <i class="fas fa-file-upload"></i>
+        </div>
         <div
           *ngIf="isEditing === false && currentLesson !== ''"
           class="actionButton"
@@ -15,7 +28,12 @@
         </div>
 
         <div
-          *ngIf="isEditing === false && currentLesson !== ''"
+          *ngIf="
+            isEditing === false &&
+            currentLesson !== '' &&
+            auth.canEdit &&
+            auth.isEditMode
+          "
           class="actionButton"
           (click)="startEdit()"
           style="color:#212121; background-color:#fafafa"
@@ -40,6 +58,30 @@
         </div>
       </div>
     </div>
+    <div *ngIf="addFile" class="addFile">
+      <div class="addFilePanel">
+        <input
+          type="text"
+          placeholder="Fájl neve"
+          class="addFile__input"
+          [(ngModel)]="fileToUpload.name"
+          required
+        />
+        <input
+          type="file"
+          id="fileselector"
+          accept="application/pdf"
+          (change)="fileChanged($event)"
+          required
+        />
+        <button style="background-color: #7cb342" (click)="uploadPdf()">
+          Feltöltés
+        </button>
+        <button style="background-color: #e53935" (click)="toggleUpload()">
+          Bezár
+        </button>
+      </div>
+    </div>
     <div *ngIf="!isEditing">
       <div #contentToShow id="toPdf"></div>
     </div>
@@ -59,6 +101,23 @@
           (click)="cancelEditing()"
         >
           <i class="fas fa-ban"></i> &nbsp;Mégse
+        </div>
+      </div>
+    </div>
+    <div class="files" *ngIf="hasLessonToShow">
+      <div>
+        Fájlok
+        <i
+          *ngIf="auth.canEdit && auth.isEditMode"
+          class="fas fa-plus-circle"
+          (click)="addExercise()"
+        ></i>
+      </div>
+    </div>
+    <div *ngIf="hasLessonToShow">
+      <div *ngIf="currentLesson.files.length > 0" class="file-list">
+        <div *ngFor="let file of currentLesson.files">
+          <app-file [file]="file"></app-file>
         </div>
       </div>
     </div>

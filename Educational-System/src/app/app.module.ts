@@ -27,6 +27,7 @@ import { MonacoEditorComponent } from "./components/exercises/monaco-editor/mona
 import { ForumMainComponent } from "./components/forum/forum-main/forum-main.component";
 import { ForumListItemComponent } from "./components/forum/forum-list-item/forum-list-item.component";
 import { ForumListDetailsComponent } from "./components/forum/forum-list-details/forum-list-details.component";
+import { FileComponent } from './file/file.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ForumListDetailsComponent } from "./components/forum/forum-list-details
     MonacoEditorComponent,
     ForumMainComponent,
     ForumListItemComponent,
-    ForumListDetailsComponent
+    ForumListDetailsComponent,
+    FileComponent
   ],
   imports: [
     BrowserModule,
