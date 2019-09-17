@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/services/auth.service";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-profile",
@@ -11,8 +12,13 @@ import { environment } from "../../../environments/environment";
 export class ProfileComponent implements OnInit {
   fileSelector;
   imageUrl = environment.BaseImageUrl;
+  user;
 
-  constructor(public auth: AuthService, private http: HttpClient) {}
+  constructor(
+    public auth: AuthService,
+    private http: HttpClient,
+    private userService: UserService
+  ) {}
 
   buildFileSelector() {
     const fileSelector = document.createElement("input");
@@ -27,7 +33,9 @@ export class ProfileComponent implements OnInit {
       this.imageUrl = environment.BaseImageUrl + name;
     });
     this.fileSelector = this.buildFileSelector();
-    //this.imageUrl = this.imageUrl + "/" + localStorage.getItem("imageUrl");
+    this.userService.getUser(localStorage.getItem("userId")).subscribe(res => {
+      this.user = res;
+    });
   }
 
   uploadfile() {

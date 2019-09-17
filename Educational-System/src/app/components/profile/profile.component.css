@@ -5,12 +5,13 @@
     background-attachment: fixed;
     min-height: 100%;
 }
+
 .container {
     width: 70%;
     margin: 0 auto;
     min-height: 100vh;
     background: rgba(250, 250, 250, 0.8);
-    
+
 }
 
 #nameplate {
@@ -23,12 +24,32 @@
 }
 
 #profilePicture {
+    border-radius: 50%;
+
+}
+
+/* .image-sizer {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: 48px;
+    margin-left: 20px;
+} */
+
+.image-sizer img {
+    margin-top: 48px;
+    margin-left: 48px;
+    margin-right: 48px;
     border-radius: 100%;
-    width: 20%;
-    height: auto;
-    flex-grow: 1;
-    margin-top: 5%;
-    
+    width: 200px;
+    height: 200px;
+    /*     width: auto;
+    height: 100%;
+    margin-left: -50px */
+    ;
 }
 
 #information {
@@ -42,7 +63,7 @@
 }
 
 #chartCards {
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -84,7 +105,8 @@
     .container {
         width: 100%;
     }
+
     #profilePicture {
         flex-basis: 100%;
     }
-  }
+}

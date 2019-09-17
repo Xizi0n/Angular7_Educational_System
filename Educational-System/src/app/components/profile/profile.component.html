@@ -1,10 +1,12 @@
 <div class="wrapper">
   <div class="container">
     <div id="nameplate">
-      <img id="profilePicture" src="{{ imageUrl }}" (click)="uploadfile()" />
+      <div class="image-sizer">
+        <img id="profilePicture" src="{{ imageUrl }}" (click)="uploadfile()" />
+      </div>
       <div id="information">
-        <div class="display">Név:</div>
-        <div class="display">Szak:</div>
+        <div class="display">Név: {{ user.name }}</div>
+        <div class="display">Szak: {{ user.department }}</div>
         <div class="display">Megoldások: 44</div>
       </div>
     </div>
