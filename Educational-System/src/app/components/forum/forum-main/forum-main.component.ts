@@ -19,16 +19,15 @@ export class ForumMainComponent implements OnInit {
   }
 
   ngOnInit() {
-    /* this.forumService.dataChanged$.subscribe( () => {
-      this.forumService.getTopics().subscribe(topics => {
+    this.forumService.getTopics().subscribe(
+      topics => {
         this.topics = topics;
         console.log(topics);
-      }, err => {
+      },
+      err => {
         console.error(err);
-      });
-    }, err => {
-      console.error(err);
-    }); */
+      }
+    );
   }
 
   reload() {

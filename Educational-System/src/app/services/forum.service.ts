@@ -17,19 +17,55 @@ export class ForumService {
   }
 
   getTopics() {
-    //return this.postsApi.find();
+    return this.http.get(environment.BaseUrl + "/forum/topic/get-all");
   }
 
-  addReply(oid, index, body) {
-    /* const asd = "posts[0].$.replies";
-    console.log(asd);
-    return this.postsApi.updateAll(
-      { id: oid },
+  addReply(id, body) {
+    console.log(id);
+    return this.http.post(
+      environment.BaseUrl + "/forum/post/add-reply",
       {
-        $push: {
-          "posts.0.replies": body
+        postId: id,
+        replyToSave: { ...body, author: localStorage.getItem("userId") }
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
         }
       }
-    ); */
+    );
+  }
+
+  getReplies(postId) {
+    return this.http.get(
+      environment.BaseUrl + `/forum/post/get-replies/${postId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      }
+    );
+  }
+
+  getPost(postId) {
+    return this.http.get(environment.BaseUrl + `/forum/post/get/${postId}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    });
+  }
+
+  addRating(postId) {
+    return this.http.post(
+      environment.BaseUrl + "/forum/post/rating/add",
+      {
+        postId: postId
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      }
+    );
   }
 }

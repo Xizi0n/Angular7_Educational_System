@@ -1,0 +1,42 @@
+<div class="post">
+  <div>
+    {{ post.content }}
+  </div>
+  <div class="code">
+    <div style="margin-top: 15px; text-decoration: underline">
+      Mellékelt kód:
+    </div>
+    <code>{{ post.code }}</code>
+  </div>
+  <div class="meta">
+    {{ post.author.name }} @ 2018.05.15. 12:21
+    <span>{{ post.rating }} <i class="far fa-thumbs-up"></i></span>
+  </div>
+  <div class="menu">
+    <div class="flex">
+      <div class="menuItem" (click)="reply(post)" id="reply">Válasz</div>
+      <div class="menuItem" (click)="toggleShowReplies()">
+        Hozzászólások ({{ post.replies.length }})
+      </div>
+      <div class="menuItem" (click)="like(post)" id="like">
+        <i class="far fa-thumbs-up"></i> Tetszik
+      </div>
+    </div>
+  </div>
+  <div class="inputPanel" *ngIf="openReply">
+    <div>Üzenet szövege</div>
+    <textarea rows="6" [(ngModel)]="message"></textarea>
+    <div>Kód</div>
+    <textarea rows="6" [(ngModel)]="code" id="code"></textarea>
+    <div class="buttons">
+      <button id="cancel" (click)="closeReply()">Mégse</button>
+      <button id="send" (click)="sendReply(post._id)">Küldés</button>
+    </div>
+  </div>
+</div>
+<div>
+  <app-forum-replies
+    *ngIf="showReplies"
+    [postId]="post._id"
+  ></app-forum-replies>
+</div>

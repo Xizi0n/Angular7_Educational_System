@@ -28,6 +28,10 @@ import { ForumMainComponent } from "./components/forum/forum-main/forum-main.com
 import { ForumListItemComponent } from "./components/forum/forum-list-item/forum-list-item.component";
 import { ForumListDetailsComponent } from "./components/forum/forum-list-details/forum-list-details.component";
 import { FileComponent } from './file/file.component';
+import { ForumReplyComponent } from './components/forum/forum-reply/forum-reply.component';
+import { ForumRepliesComponent } from './components/forum/forum-replies/forum-replies.component';
+import { ForumPostComponent } from './components/forum/forum-post/forum-post.component';
+import { ForumListItemRowComponent } from './components/forum/forum-list-item-row/forum-list-item-row.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { FileComponent } from './file/file.component';
     ForumMainComponent,
     ForumListItemComponent,
     ForumListDetailsComponent,
-    FileComponent
+    FileComponent,
+    ForumReplyComponent,
+    ForumRepliesComponent,
+    ForumPostComponent,
+    ForumListItemRowComponent
   ],
   imports: [
     BrowserModule,

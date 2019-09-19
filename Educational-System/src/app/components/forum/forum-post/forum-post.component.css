@@ -1,0 +1,131 @@
+.post {
+    background-color: rgb(33, 33, 33);
+    color: #fafafa;
+    display: inline-block;
+    margin-left: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.50);
+    margin-right: auto;
+    min-width: 300px;
+}
+
+.posts {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+
+
+.replies {
+    margin-top: 10px;
+    margin-left: 120px;
+
+    color: #fafafa;
+    display: inline-block;
+}
+
+.reply {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.50);
+    background-color: rgb(33, 33, 33);
+    min-width: 300px;
+}
+
+.meta {
+    margin-top: 20px;
+    font-size: 0.8em;
+    text-align: right;
+
+}
+
+.menu {
+    margin-top: 10px;
+    font-size: 1em;
+
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.menuItem {
+    margin-left: 10px;
+    border: 1px solid rgba(250, 250, 250, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    margin-left: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fafafa;
+    color: #212121;
+    transition: 0.3s;
+}
+
+.selected {
+    margin-left: 10px;
+    border: 1px solid #000000;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fafafa;
+    color: #212121;
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.buttons button {
+    margin-left: 15px;
+    text-decoration: 0;
+    font-size: 1.2em;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cancel {
+    border: 1px solid #9D3739;
+    background-color: #212121;
+    color: #9D3739;
+}
+
+#send {
+    border: 1px solid #0069AA;
+    background-color: #212121;
+    color: #0069AA;
+}
+
+#cancel:hover {
+    border: 1px solid #9D3739;
+    background-color: #9D3739;
+    color: #fafafa;
+}
+
+#send:hover {
+    border: 1px solid #0069AA;
+    background-color: #0069AA;
+    color: #fafafa;
+}
+
+#code {
+    font-family: 'Inconsolata', monospace;
+}

@@ -1,0 +1,21 @@
+<div class="replies" *ngIf="loaded">
+  <div *ngFor="let reply of post.replies" class="reply">
+    <div>{{ reply.content }}</div>
+    <div class="code" *ngIf="reply.code">
+      <div style="margin-top: 15px; text-decoration: underline">
+        Mellékelt kód:
+      </div>
+      <code>{{ reply.code }}</code>
+    </div>
+    <div class="meta">{{ reply.author.name }} @ {{ reply.createdAt }}</div>
+    <div class="menu">
+      <div class="flex">
+        <!-- <div class="menuItem">Válasz</div> -->
+        <!-- <div class="menuItem">Hozzászólások</div> -->
+        <div class="menuItem" id="like">
+          <i class="far fa-thumbs-up"></i> Tetszik
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
