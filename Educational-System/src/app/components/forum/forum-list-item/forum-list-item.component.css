@@ -47,3 +47,96 @@
 div i {
     margin-right: 4px;
 }
+
+textarea {
+    resize: vertical;
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.buttons button {
+    margin-left: 15px;
+    text-decoration: 0;
+    font-size: 1.2em;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cancel {
+    border: 1px solid #9D3739;
+    background-color: #212121;
+    color: #9D3739;
+}
+
+#send {
+    border: 1px solid #0069AA;
+    background-color: #212121;
+    color: #0069AA;
+}
+
+#cancel:hover {
+    border: 1px solid #9D3739;
+    background-color: #9D3739;
+    color: #fafafa;
+}
+
+#send:hover {
+    border: 1px solid #0069AA;
+    background-color: #0069AA;
+    color: #fafafa;
+}
+
+#code {
+    font-family: 'Inconsolata', monospace;
+}
+
+.inputPanel {
+    margin: 10px 0px;
+    background-color: rgb(33, 33, 33);
+    color: #fafafa;
+    display: inline-block;
+    margin-left: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.50);
+    margin-right: auto;
+    min-width: 300px;
+}
+
+.newPostButton {
+    width: auto;
+    border: none;
+    background-color: #7cb342;
+    color: white;
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 20px;
+    cursor: pointer;
+}
+
+.newPostButton:hover {
+    color: #212121;
+    transition: 0.3s;
+}
+
+.title {
+    width: calc(100% - 10px);
+    margin: 5px 0 10px 0;
+    border-radius: 5px;
+    font-size: 20px;
+    border: none;
+    padding: 5px;
+}
+
+.selected {
+    background-color: #2121211f;
+    color: white;
+}

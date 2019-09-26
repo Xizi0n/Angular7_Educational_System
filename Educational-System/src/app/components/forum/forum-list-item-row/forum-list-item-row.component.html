@@ -1,9 +1,17 @@
-<div class="item" (click)="toggleDetails()" *ngIf="post">
+<div
+  [className]="showDetails ? 'selected item' : 'item'"
+  (click)="toggleDetails($event)"
+  *ngIf="post"
+>
   <span style="cursor: pointer;">{{ post.title }}</span>
   <div class="spacer">
+    <div style="margin-right: 20px" (click)="deletePost()">
+      <i class="fas fa-trash" style="color: red; cursor: pointer"></i>
+    </div>
     <div style="margin-right: 20px">
       <i class="far fa-thumbs-up"></i>{{ post.rating }}
     </div>
+
     <span>Nyitotta: {{ post.author.name }}</span>
   </div>
 </div>

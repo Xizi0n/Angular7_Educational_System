@@ -13,14 +13,27 @@ export class ForumListItemRowComponent implements OnInit {
   constructor(private forumService: ForumService) {}
 
   ngOnInit() {
-    console.log(this.postId);
+    this.getPost();
+  }
+
+  getPost() {
     this.forumService.getPost(this.postId).subscribe(post => {
       this.post = post;
     });
   }
 
-  toggleDetails() {
-    this.showDetails = !this.showDetails;
-    console.log(this.showDetails);
+  toggleDetails(event) {
+    if (event.target.className !== "fas fa-trash") {
+      console.log(event.target);
+      this.showDetails = !this.showDetails;
+      console.log(this.showDetails);
+    }
+  }
+
+  deletePost() {
+    this.forumService.deletePost(this.postId).subscribe(result => {
+      console.log(result);
+      this.getPost();
+    });
   }
 }

@@ -47,3 +47,7 @@
 div i {
     margin-right: 4px;
 }
+
+.selected {
+    background-color: #2121211f;
+}

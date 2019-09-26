@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -31,4 +31,23 @@ body{
     height: 800px;
     width: 90%;
     margin: 0 auto;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #fafafa;
+    padding: 4px;
+}
+
+.center input {
+    width: 10%;
+    min-width: 200px;
+}
+
+.button {
+    background-color: #7cb342;
+    color: white;
+    border: none;
 }

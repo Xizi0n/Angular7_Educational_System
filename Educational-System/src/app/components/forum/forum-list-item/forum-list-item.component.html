@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="header" (click)="toggleDropDown()">
+  <div
+    [className]="toggle ? 'selected header' : 'header'"
+    (click)="toggleDropDown()"
+  >
     {{ topic.name }}
     <span style="flex: 1 1 auto;"></span>
     <i class="fas fa-chevron-down"></i>
@@ -7,15 +10,27 @@
   <div class="list" *ngIf="toggle">
     <div class="flexlist">
       <div *ngFor="let post of topic.posts">
-        <app-forum-list-item-row [postId]="post"></app-forum-list-item-row>
+        <app-forum-list-item-row [postId]="post._id"></app-forum-list-item-row>
+      </div>
+      <button
+        *ngIf="!showAddPost"
+        (click)="toggleAddPost()"
+        class="newPostButton"
+      >
+        Új poszt létrehozása
+      </button>
+    </div>
+    <div class="inputPanel" *ngIf="showAddPost">
+      <div>Poszt címe</div>
+      <input class="title" type="text" [(ngModel)]="title" />
+      <div>Üzenet szövege</div>
+      <textarea rows="6" [(ngModel)]="message"></textarea>
+      <div>Kód</div>
+      <textarea rows="6" [(ngModel)]="code" id="code"></textarea>
+      <div class="buttons">
+        <button id="cancel" (click)="closePost()">Mégse</button>
+        <button id="send" (click)="sendPost(topic._id)">Küldés</button>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="header">
-    +
-    <span style="flex: 1 1 auto;"></span>
-    <i class="fas fa-chevron-down"></i>
   </div>
 </div>

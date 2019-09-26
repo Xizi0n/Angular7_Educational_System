@@ -12,8 +12,41 @@ export class ForumService {
 
   constructor(private http: HttpClient) {}
 
-  createTopic(topic) {
-    //return this.postsApi.create(topic);
+  createTopic(topicName) {
+    return this.http.post(
+      environment.BaseUrl + "/forum/topic/add",
+      {
+        name: topicName
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      }
+    );
+  }
+
+  addPost(topicId, postToSave) {
+    return this.http.post(
+      environment.BaseUrl + "/forum/post/add",
+      {
+        topicId: topicId,
+        postToSave: postToSave
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      }
+    );
+  }
+
+  getTopic(topicId) {
+    return this.http.get(environment.BaseUrl + `/forum/topic/get/${topicId}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    });
   }
 
   getTopics() {
@@ -53,6 +86,20 @@ export class ForumService {
         Authorization: `Bearer ${localStorage.getItem("token")}`
       }
     });
+  }
+
+  deletePost(postId) {
+    return this.http.post(
+      environment.BaseUrl + "/forum/post/delete",
+      {
+        postId
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      }
+    );
   }
 
   addRating(postId) {

@@ -1,12 +1,34 @@
-
 <div class="div">
   <div class="container">
-    <div class="title">Üdv, a Fórumon! <br>
-    Itt tudsz segítséget kérni a hallgatótársaidtól, illetve oktatóidtól.</div>
+    <div class="title">
+      Üdv, a Fórumon! <br />
+      Itt tudsz segítséget kérni a hallgatótársaidtól, illetve oktatóidtól.
+    </div>
   </div>
   <div class="content">
     <div class="topics">
-      <app-forum-list-item *ngFor="let topic of topics;"  [topic]="topic" ></app-forum-list-item>
+      <app-forum-list-item
+        *ngFor="let topic of topics"
+        [topic]="topic"
+      ></app-forum-list-item>
+      <div class="row">
+        <div class="header">
+          <span style="flex: 1 1 auto;"></span>
+          <div
+            style="background-color:#7cb342; text-align: center; padding: 0"
+            (click)="showAddTopic()"
+          >
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <span style="flex: 1 1 auto;"></span>
+        </div>
+      </div>
+      <div class="row" *ngIf="showaddTopic">
+        <div class="center">
+          <input type="text" placeholder="Téma neve" [(ngModel)]="topicToAdd" />
+          <button class="button" (click)="addTopic()">Hozzáadás</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
