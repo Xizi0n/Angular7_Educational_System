@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LessonComponent } from './components/lesson/lesson.component';
 import { AuthguardService } from './services/authguard.service';
 import { ForumMainComponent } from './components/forum/forum-main/forum-main.component';
+import { AdminpanelComponent } from './components/adminpanel/adminpanel/adminpanel.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthguardService]},
   {path: 'lessons', component: LessonComponent, canActivate: [AuthguardService] },
-  {path: 'forum', component: ForumMainComponent}
+  {path: 'forum', component: ForumMainComponent},
+  {path: 'admin', component: AdminpanelComponent}
 ];
 
 @NgModule({

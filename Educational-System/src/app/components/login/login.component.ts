@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
             localStorage.getItem("role") === "teacher"
               ? true
               : false;
+          this.auth.isAdmin = localStorage.getItem("role") === "admin";
           this.router.navigateByUrl("/kurzusok");
           setTimeout(() => {
             this.auth.logout();
