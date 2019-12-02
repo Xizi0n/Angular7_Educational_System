@@ -1,0 +1,45 @@
+.bg {
+    width: 100vw;
+    height: 100vh;
+    background-color: #212121;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    font-size: 28px;
+    color: white;
+    padding-top: 96px;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .container{
+        width: 100%;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-item {
+    flex-grow: 1;
+}
+
+.flex-input {
+    width: 80%;
+    margin: 0 auto;
+    padding: 8px;
+    border: none;
+    font-size: 18px;
+}
+
+.green {
+    background-color: #7cb342;
+}

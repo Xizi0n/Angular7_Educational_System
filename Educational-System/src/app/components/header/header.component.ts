@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   dropdownToogle = false;
   enableNotifications = true;
   imageUrl = environment.BaseImageUrl;
+  isAdmin = localStorage.getItem("role") === "admin";
 
   constructor(public auth: AuthService, private router: Router) {}
 
@@ -34,5 +35,9 @@ export class HeaderComponent implements OnInit {
 
   toggleEditMode() {
     this.auth.isEditMode = !this.auth.isEditMode;
+  }
+
+  goToAdminPanel() {
+    this.router.navigateByUrl("/admin");
   }
 }

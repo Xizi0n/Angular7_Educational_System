@@ -32,6 +32,7 @@ import { ForumReplyComponent } from './components/forum/forum-reply/forum-reply.
 import { ForumRepliesComponent } from './components/forum/forum-replies/forum-replies.component';
 import { ForumPostComponent } from './components/forum/forum-post/forum-post.component';
 import { ForumListItemRowComponent } from './components/forum/forum-list-item-row/forum-list-item-row.component';
+import { AdminpanelComponent } from './components/adminpanel/adminpanel/adminpanel.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ForumListItemRowComponent } from './components/forum/forum-list-item-ro
     ForumReplyComponent,
     ForumRepliesComponent,
     ForumPostComponent,
-    ForumListItemRowComponent
+    ForumListItemRowComponent,
+    AdminpanelComponent
   ],
   imports: [
     BrowserModule,

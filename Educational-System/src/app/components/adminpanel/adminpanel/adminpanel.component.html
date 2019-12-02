@@ -1,0 +1,20 @@
+<div class="bg">
+  <div class="container">
+    <div class="header">Jogosultság kezelése</div>
+      <div class="flex" >
+        <div class="flex-item">
+            <input type="text" placeholder="A felhasználó azonosítója" [(ngModel)]="userId" class="flex-input">
+        </div>
+        <div class="flex-item">
+            <select name="" id="" class="flex-input" [(ngModel)]="role">
+                <option value="student">Diák</option>
+                <option value="teacher">Tanár</option>
+                <option value="admin">Adminisztrátor</option>
+              </select>
+        </div>
+        <div class="flex-item">
+            <button class="flex-input green" (click)="updateUser()">Módosít</button>
+        </div>
+      </div>
+  </div>
+</div>

@@ -62,5 +62,13 @@
   >
     Edit mode
   </div>
+  <div
+    *ngIf="auth.canEdit"
+    class="headerItem"
+    style="cursor: pointer"
+    (click)="goToAdminPanel()"
+  >
+    Admin Panel
+  </div>
   <div class="burger"><i class="fas fa-bars"></i></div>
 </div>

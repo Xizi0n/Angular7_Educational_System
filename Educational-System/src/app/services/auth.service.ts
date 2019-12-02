@@ -11,6 +11,7 @@ export class AuthService {
   isAuthenticated = false;
   loggedinUser: any;
   canEdit = false;
+  isAdmin = false;
   isEditMode = false;
   profilePicture = localStorage.getItem("imageUrl") || "default.jpg";
   profilePicture$ = new BehaviorSubject(this.profilePicture);
@@ -39,6 +40,7 @@ export class AuthService {
     localStorage.clear();
     this.isAuthenticated = false;
     this.loggedinUser = {};
+    this.isAdmin = false;
     this.router.navigateByUrl("/login");
   }
 

@@ -15,4 +15,15 @@ export class UserService {
       }
     });
   }
+
+  updateUser( userId, newrole) {
+    return this.http.post(environment.BaseUrl + `/user/update`, {
+      id: userId,
+      role: newrole
+    }, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    });
+  }
 }
