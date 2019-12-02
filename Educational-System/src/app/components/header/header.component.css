@@ -85,6 +85,8 @@
     height: 20px;
     line-height: 20px;
     width: inherit;
+    top: 48px;
+    right: 0px;
   }
   
   .dropdown-content a {

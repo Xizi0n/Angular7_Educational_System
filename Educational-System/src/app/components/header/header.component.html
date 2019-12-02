@@ -9,13 +9,6 @@
   </div>
   <div
     class="headerItem icon"
-    style="width: 30px;"
-    *ngIf="auth.isAuthenticated && enableNotifications"
-  >
-    <i (click)="toggleNotifications()" class="fas fa-bell"></i>
-  </div>
-  <div
-    class="headerItem icon"
     id="warn"
     style="width: 30px;"
     *ngIf="auth.isAuthenticated && !enableNotifications"
