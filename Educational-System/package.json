@@ -24,7 +24,7 @@
     "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "express": "^4.17.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.5.1",
     "ngx-bootstrap": "^3.2.0",
     "ngx-editor": "^4.1.0",
     "ngx-monaco-editor": "^7.0.0",
